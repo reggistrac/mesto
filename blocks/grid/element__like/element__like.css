@@ -1,3 +1,7 @@
 .element__like {
-    
+	
+}
+.element__like:hover {
+	cursor: pointer;
+
 }
