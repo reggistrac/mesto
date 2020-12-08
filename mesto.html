@@ -1,0 +1,91 @@
+<!DOCTYPE Html>
+<html lang="ru">
+<head>
+    <title>Место - Россия</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Фёдор Никонов">
+    <link rel="stylesheet" href="./pages/mesto.css">
+</head>
+
+<body class="main">
+<div class="content">
+    <header class="header">
+        <div class="header__logo"></div>
+    </header>
+
+    <section class="profile">
+        <img class="profile__avatar" src="./images/kusto.jpg" alt="Фотография Жака-Ива Кусто">
+        <div class="profile__info">
+            <div class="profile__1str">
+                <p class="profile__name">Жак-Ив Кусто</p>
+                <div class="profile__edit"></div>
+            </div>
+            <p class="profile__job">Исследователь океана</p>
+        </div>
+        <div class="AddButton"></div>
+    </section>
+
+    <div class="popup disNone">
+        <form class="EditForm" name="namjob">
+            <div class="close"></div>
+            <p class="EditForm__text">Редактировать профиль</p>
+            <input class="InputName" type="text" name="inputName">
+            <input class="InputWork" type="text" name="inputJob">
+            <input class="EditForm__submit" type="submit" value="Сохранить">
+		</form>
+    </div>
+
+    <section class="grid">
+        <div class="element">
+            <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
+            <div class="element__subscribe">
+                <p class="element__text">Карачаево-Черкесия</p>
+                <img class="element__like" src="./images/like.svg" alt="like">
+            </div>
+        </div>
+        <div class="element">
+            <img class="element__img" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+            <div class="element__subscribe">
+                <p class="element__text">Гора Эльбрус</p>
+                <img class="element__like" src="./images/like.svg" alt="like">
+            </div>
+        </div>
+        <div class="element">
+            <img class="element__img" src="./images/dombay.jpg" alt="Домбай">
+            <div class="element__subscribe">
+                <p class="element__text">Домбай</p>
+                <img class="element__like" src="./images/like.svg" alt="like">
+            </div>
+        </div>
+        <div class="element">
+            <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
+            <div class="element__subscribe">
+                <p class="element__text">Карачаево-Черкесия</p>
+                <img class="element__like" src="./images/like.svg" alt="like">
+            </div>
+        </div>
+        <div class="element">
+            <img class="element__img" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+            <div class="element__subscribe">
+                <p class="element__text">Гора Эльбрус</p>
+                <img class="element__like" src="./images/like.svg" alt="like">
+            </div>
+        </div>
+        <div class="element">
+            <img class="element__img" src="./images/dombay.jpg" alt="Домбай">
+            <div class="element__subscribe">
+                <p class="element__text">Домбай</p>
+                <img class="element__like" src="./images/like.svg" alt="like">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer__text">&copy; 2020 Mesto Russia</p>
+        <p class="footer__author">Фёдор Никонов</p>
+    </footer>
+</div>
+<script src="./script/script.js"></script>
+</body>
+</html>

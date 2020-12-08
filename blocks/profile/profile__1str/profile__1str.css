@@ -1,0 +1,8 @@
+.profile__1str {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+}

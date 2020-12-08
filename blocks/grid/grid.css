@@ -1,0 +1,19 @@
+@import url('./element/element.css');
+
+@import url('./element__img/element__img.css');
+
+@import url('./element__subscribe/element__subscribe.css');
+
+@import url('./element__text/element__text.css');
+
+@import url('./element__like/element__like.css');
+
+.grid {
+    width: 100%;
+    display: grid;
+    margin: 51px auto 0px auto;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    grid-column-gap: 18px;
+    grid-row-gap: 20px;
+    justify-items: center;
+}

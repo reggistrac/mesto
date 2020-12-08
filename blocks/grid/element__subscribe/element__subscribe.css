@@ -1,0 +1,6 @@
+.element__subscribe {
+    max-width: calc(100% - 42px);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
