@@ -18,28 +18,28 @@ function showPopup () {
 	let popup = document.querySelector('.popup');
 	let profname = document.querySelector('.profile__name');
 	let profjob = document.querySelector('.profile__job');
-	let valueName = document.querySelector('.InputName');
-	let valueJob = document.querySelector('.InputWork');
-	popup.classList.remove('disNone');
+	let valueName = document.querySelector('.popup__InputName');
+	let valueJob = document.querySelector('.popup__InputWork');
+	popup.classList.remove('popup_disNone');
 	valueName.setAttribute('value', profname.textContent);
 	valueJob.setAttribute('value', profjob.textContent);
 }
 function closePopup () {
 	let popup = document.querySelector('.popup');
-	let valueName = document.querySelector('.InputName');
-	let valueJob = document.querySelector('.InputWork');
+	let valueName = document.querySelector('.popup__InputName');
+	let valueJob = document.querySelector('.popup__InputWork');
 	valueName.setAttribute('value', '');
 	valueJob.setAttribute('value', '');
-	popup.classList.add('disNone');	
+	popup.classList.add('popup_disNone');	
 }
 
 let edit  = document.querySelector('.profile__edit');
 edit.addEventListener ('click' , showPopup);
 
-let closed  = document.querySelector('.close');
+let closed  = document.querySelector('.popup__close');
 closed.addEventListener ('click' , closePopup);
 
-let formElement = document.querySelector('.EditForm');
+let formElement = document.querySelector('.popup__EditForm');
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
@@ -68,7 +68,7 @@ function formSubmitHandler (evt) {
     // Выберите элементы, куда должны быть вставлены значения полей
 
 	// Вставьте новые значения с помощью textContent
-	popup.classList.add('disNone');	
+	popup.classList.add('popup_disNone');	
 }
 
 // Прикрепляем обработчик к форме:

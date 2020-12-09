@@ -1,14 +1,14 @@
-.AddButton {
+.profile__AddButton {
     width: 146px;
     height: 46px;
-    background-image: url(../../images/AddButton.svg);
+    background-image: url(../../../images/AddButton.svg);
     background-position: center;
     background-repeat: no-repeat;
     border: 2px solid white;
     margin: 0px 0px 0px auto;
 }
 
-.AddButton:hover {
+.profile__AddButton:hover {
     opacity: 0.6;
 	cursor: pointer;
 }

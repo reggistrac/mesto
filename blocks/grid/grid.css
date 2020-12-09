@@ -1,13 +1,3 @@
-@import url('./element/element.css');
-
-@import url('./element__img/element__img.css');
-
-@import url('./element__subscribe/element__subscribe.css');
-
-@import url('./element__text/element__text.css');
-
-@import url('./element__like/element__like.css');
-
 .grid {
     width: 100%;
     display: grid;

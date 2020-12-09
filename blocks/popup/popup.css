@@ -1,14 +1,16 @@
-@import url('./EditForm/EditForm.css');
+@import url('./__EditForm/popup__EditForm.css');
 
-@import url('./EditForm__text/EditForm__text.css');
+@import url('./__text/popup__text.css');
 
-@import url('./close/close.css');
+@import url('./__close/popup__close.css');
 
-@import url('./InputName/InputName.css');
+@import url('./__InputName/popup__InputName.css');
 
-@import url('./InputWork/InputWork.css');
+@import url('./__InputWork/popup__InputWork.css');
 
-@import url('./EditForm__submit/EditForm__submit.css');
+@import url('./__submit/popup__submit.css');
+
+@import url('./_disNone/popup_disNone.css');
 
 .popup {
     position: fixed;
@@ -18,8 +20,4 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 	z-index: 2;
-}
-
-.disNone {
-	display: none;	
 }

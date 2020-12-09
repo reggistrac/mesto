@@ -1,5 +1,5 @@
-.EditForm__submit {
-	font-family: 'inter','Arial', sans-serif;
+.popup__submit {
+	font-family: 'interRegular','Arial', sans-serif;
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 22px;
@@ -13,7 +13,7 @@
 	background-color: black;
 }
 
-.EditForm__submit:hover {
+.popup__submit:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }

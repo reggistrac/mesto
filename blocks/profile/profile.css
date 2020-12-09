@@ -1,16 +1,16 @@
-@import url('./profile__avatar/profile__avatar.css');
+@import url('./__avatar/profile__avatar.css');
 
-@import url('./profile__info/profile__info.css');
+@import url('./__info/profile__info.css');
 
-@import url('./profile__name/profile__name.css');
+@import url('./__name/profile__name.css');
 
-@import url('./profile__job/profile__job.css');
+@import url('./__job/profile__job.css');
 
-@import url('./profile__1str/profile__1str.css');
+@import url('./__str/profile__str.css');
 
-@import url('./profile__edit/profile__edit.css');
+@import url('./__edit/profile__edit.css');
 
-@import url('../AddButton/AddButton.css');
+@import url('./__AddButton/profile__AddButton.css');
 
 .profile {
     display: flex;

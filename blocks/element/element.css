@@ -1,0 +1,17 @@
+@import url('./__img/element__img.css');
+
+@import url('./__subscribe/element__subscribe.css');
+
+@import url('./__text/element__text.css');
+
+@import url('./__like/element__like.css');
+
+.element {
+    width: 100%;
+    max-width: 282px;
+    max-height: 361px;
+    margin: 0px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
