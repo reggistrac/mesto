@@ -1,6 +1,6 @@
 .element__text {
-    font-family: 'interBlack','Arial', sans-serif;
-	font-weight: normal;
+    font-family: 'inter','Arial', sans-serif;
+	font-weight: 900;
 	font-size: 24px;
     line-height: 29px;
     text-overflow: ellipsis;
