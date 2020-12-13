@@ -8,84 +8,89 @@
     <link rel="stylesheet" href="./pages/mesto.css">
 </head>
 
-<body class="main">
-<div class="content">
-    <header class="header">
-        <div class="header__logo"></div>
-    </header>
+<body class="body">
+ <div class="content">
 
+<header class="header">
+    <div class="header__logo"></div>
+</header>
+
+<main class="main">
     <section class="profile">
         <img class="profile__avatar" src="./images/kusto.jpg" alt="Фотография Жака-Ива Кусто">
         <div class="profile__info">
             <div class="profile__str">
-                <p class="profile__name">Жак-Ив Кусто</p>
-                <div class="profile__edit"></div>
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__edit" type="button" name="profileEdit"><img src="./images/EditButon.svg" alt="Edit"></button>
             </div>
-            <p class="profile__job">Исследователь океана</p>
+            <h2 class="profile__job">Исследователь океана</h2>
         </div>
-        <div class="profile__AddButton"></div>
+        <button class="profile__addbutton" type="button" name="addButton"><img src="./images/AddButton.svg" alt="Add"></button>
     </section>
-
-    <div class="popup popup_disNone">
-        <form class="popup__EditForm" name="namjob">
-            <div class="popup__close"></div>
-            <p class="popup__text">Редактировать профиль</p>
-            <input class="popup__InputName" type="text" name="inputName">
-            <input class="popup__InputWork" type="text" name="inputJob">
-            <input class="popup__submit" type="submit" value="Сохранить">
-		</form>
-    </div>
 
     <section class="grid">
         <div class="element">
             <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
             <div class="element__subscribe">
-                <p class="element__text">Карачаево-Черкесия</p>
-                <img class="element__like" src="./images/like.svg" alt="like">
+                <h3 class="element__text">Карачаево-Черкесия</h3>
+                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
         </div>
         <div class="element">
             <img class="element__img" src="./images/elbrus.jpg" alt="Гора Эльбрус">
             <div class="element__subscribe">
-                <p class="element__text">Гора Эльбрус</p>
-                <img class="element__like" src="./images/like.svg" alt="like">
+                <h3 class="element__text">Гора Эльбрус</h3>
+                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
         </div>
         <div class="element">
             <img class="element__img" src="./images/dombay.jpg" alt="Домбай">
             <div class="element__subscribe">
-                <p class="element__text">Домбай</p>
-                <img class="element__like" src="./images/like.svg" alt="like">
+                <h3 class="element__text">Домбай</h3>
+                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
         </div>
         <div class="element">
             <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
             <div class="element__subscribe">
-                <p class="element__text">Карачаево-Черкесия</p>
-                <img class="element__like" src="./images/like.svg" alt="like">
+                <h3 class="element__text">Карачаево-Черкесия</h3>
+                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
         </div>
         <div class="element">
             <img class="element__img" src="./images/elbrus.jpg" alt="Гора Эльбрус">
             <div class="element__subscribe">
-                <p class="element__text">Гора Эльбрус</p>
-                <img class="element__like" src="./images/like.svg" alt="like">
+                <h3 class="element__text">Гора Эльбрус</h3>
+                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
         </div>
         <div class="element">
             <img class="element__img" src="./images/dombay.jpg" alt="Домбай">
             <div class="element__subscribe">
-                <p class="element__text">Домбай</p>
-                <img class="element__like" src="./images/like.svg" alt="like">
+                <h3 class="element__text">Домбай</h3>
+                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
 		</div>
-    </section>
+	</section>
+</main>
 
-    <footer class="footer">
-        <p class="footer__text">&copy; 2020 Mesto Russia</p>
-        <p class="footer__author">Фёдор Никонов</p>
-    </footer>
+<footer class="footer">
+    <p class="footer__p">&copy; 2020 Mesto Russia</p>
+    <p class="footer__p">Фёдор Никонов</p>
+</footer>
+
+</div> <!-- content -->
+
+<div class="popup popup_disnone">
+	<form class="popup__editform" name="namjob">
+		<button class="popup__close" type="button" name="closeButton"></button>
+		<h1 class="popup__text">Редактировать профиль</h1>
+		<input class="popup__inputname" type="text" name="inputName"> <!-- У полей имени и работы разные стили -  -->
+		<input class="popup__inputwork" type="text" name="inputJob">  <!-- разный margin-top. -->
+		<button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
+	</form>
 </div>
+
 <script src="./script/script.js"></script>
 </body>
 </html>

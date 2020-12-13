@@ -1,7 +1,5 @@
 .element__like {
-	
-}
-.element__like:hover {
-	cursor: pointer;
-
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
 }

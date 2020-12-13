@@ -4,13 +4,14 @@
 
 @import url('./__text/element__text.css');
 
+@import url('./__button/element__button.css');
+
 @import url('./__like/element__like.css');
 
 .element {
-    width: 100%;
-    max-width: 282px;
-    max-height: 361px;
-    margin: 0px;
+	width: 100%;
+	max-width: 282px;	/* Без max-width ломается вёрстка при сжимании */
+    margin: 0px;		/* страницы, т.к картинки разного размера. */
     background-color: white;
     border-radius: 10px;
     overflow: hidden;

@@ -1,12 +1,18 @@
 .profile__name {
     color: white;
     margin: 0px;
-    font-family: 'inter','Arial', sans-serif;
+    font-family: 'Inter','Arial', sans-serif;
 	font-weight: 500;
 	font-size: 42px;
     line-height: 56px;
-	max-width: 450px;
+	max-width: calc(100% - 40px);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+@media (max-width: 400px) {
+    .profile__name {
+		font-size: 27px;
+	}
 }

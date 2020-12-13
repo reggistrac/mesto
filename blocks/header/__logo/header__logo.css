@@ -5,3 +5,9 @@
     background-image: url(../../../images/logoHeader.svg);
     background-size: cover;
 }
+
+@media (max-width: 900px) {
+    .header__logo {
+		margin-left: 27px;
+	}
+}

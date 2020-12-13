@@ -1,6 +1,8 @@
+@import url('./__p/footer__p.css');
+
 .footer {
-    font-family: 'inter','Arial', sans-serif;
-	font-weight: 900;
+    font-family: 'Inter','Arial', sans-serif;
+	font-weight: 400;
 	color: #545454;
 	font-size: 18px;
     line-height: 22px;

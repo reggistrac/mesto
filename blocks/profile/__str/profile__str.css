@@ -2,7 +2,15 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin: 0px;
+	margin: 0px;
+}
+
+@media (max-width: 400px) {
+    .profile__str {
+
+		margin-right: 0px auto;
+		justify-content: space-between;
+	}
 }

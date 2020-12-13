@@ -1,9 +1,11 @@
-.popup__InputWork {
-	width: 358px;
+.popup__inputwork {
+	width: calc(100% - 72px);
 	height: 25px;
-	margin-top: 30px;
-	margin-left: 36px;
+	margin: 30px auto 0px auto;
 	border-width: 0px 0px 2px 0px;
-	font-family: 'inter','Arial', sans-serif;
+	border-color: rgba(00, 00, 00, 0.2);
+	font-family: 'Inter','Arial', sans-serif;
 	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
 }

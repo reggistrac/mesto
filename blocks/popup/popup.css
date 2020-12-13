@@ -1,16 +1,16 @@
-@import url('./__EditForm/popup__EditForm.css');
+@import url('./__editform/popup__editform.css');
 
 @import url('./__text/popup__text.css');
 
 @import url('./__close/popup__close.css');
 
-@import url('./__InputName/popup__InputName.css');
+@import url('./__inputname/popup__inputname.css');
 
-@import url('./__InputWork/popup__InputWork.css');
+@import url('./__inputwork/popup__inputwork.css');
 
 @import url('./__submit/popup__submit.css');
 
-@import url('./_disNone/popup_disNone.css');
+@import url('./_disnone/popup_disnone.css');
 
 .popup {
     position: fixed;

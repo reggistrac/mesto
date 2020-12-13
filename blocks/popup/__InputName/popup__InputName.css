@@ -1,8 +1,11 @@
-.popup__InputName {
-    width: 358px;
+.popup__inputname {
+    width: calc(100% - 72px);
 	height: 25px;
-    margin: 54px 0px 0px 36px;
-    border-width: 0px 0px 2px 0px;
-	font-family: 'inter','Arial', sans-serif;
+    margin: 54px auto 0px auto;
+	border-width: 0px 0px 2px 0px;
+	border-color: rgba(00, 00, 00, 0.2);
+	font-family: 'Inter','Arial', sans-serif;
 	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
 }
