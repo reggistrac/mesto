@@ -9,8 +9,7 @@
 
 @media (max-width: 400px) {
     .profile__str {
-
-		margin-right: 0px auto;
-		justify-content: space-between;
+		justify-content: space-around;
+		/*margin: auto;*/
 	}
 }

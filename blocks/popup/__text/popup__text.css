@@ -11,7 +11,6 @@
 @media ( max-width: 550px) {
 	.popup__text {
 		width: 238px;
-		height: 22px;
 		font-size: 18px;
 		line-height: 22px;
 	}

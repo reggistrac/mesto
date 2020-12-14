@@ -10,7 +10,7 @@
 
 @import url('./__edit/profile__edit.css');
 
-@import url('./__AddButton/profile__AddButton.css');
+@import url('./__addbutton/profile__addbutton.css');
 
 .profile {
     display: flex;
@@ -18,15 +18,17 @@
 	align-items: center;
     flex-wrap: wrap;
 	width: 100%;
-	margin-top: 40px;
-	margin-bottom: 0px;
+	margin: 40px auto 0px auto;
 }
 
 @media (max-width: 900px) {
     .profile {
-		margin-left: 19px;
-		margin-right: 19px;
 		width: calc(100% - 38px);
 	}
 }
 
+@media (max-width: 500px) {
+    .profile {
+		margin-top: 42px;
+	}
+}

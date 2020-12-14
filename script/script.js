@@ -8,10 +8,7 @@ let closed  = document.querySelector('.popup__close');
 	// Получите значение полей из свойства value
 	let valueName = document.namjob.inputName;//.value;
 	let valueJob = document.namjob.inputJob;//.value;
-console.log('1' , profName);
-console.log('2' , profJob);
-console.log('3' + valueName);
-console.log('4' + valueJob);
+
 
 function showPopup () {
 	popup.classList.remove('popup_disnone');
