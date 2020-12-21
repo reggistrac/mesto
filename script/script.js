@@ -24,68 +24,81 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-let formElement = document.querySelector('.popup__editform');
-let edit  = document.querySelector('.profile__edit');
-let closeProf  = document.querySelector('#closeProf');
+const formElement = document.querySelector('.popup__editform');
+const edit  = document.querySelector('.profile__edit');
+const closeProf  = document.querySelector('#closeProf');
 	// Находим поля формы в DOM
-let popup = document.querySelector('.popup');
-let profName = document.querySelector('.profile__name');
-let profJob = document.querySelector('.profile__job');
+const popup = document.querySelector('.popup');
+const profName = document.querySelector('.profile__name');
+const profJob = document.querySelector('.profile__job');
 	// Получите значение полей из свойства value
-let valueName = document.namjob.inputName;
-let valueJob = document.namjob.inputJob;
+const valueName = document.namjob.inputName;
+const valueJob = document.namjob.inputJob;
 	// Переменные popupadd
-let add = document.querySelector('.profile__addbutton');
-let popupadd = document.querySelector('.popupadd');
-let formAdd = document.querySelector('.popupadd__editform');
-let closeAdd = document.querySelector('#closeAdd');
-let title = document.novoeMesto.title;
-let ssulka = document.novoeMesto.ssulka;
+const add = document.querySelector('.profile__addbutton');
+const popupadd = document.querySelector('.popupadd');
+const formAdd = document.querySelector('.popupadd__editform');
+const closeAdd = document.querySelector('#closeAdd');
+const title = document.novoeMesto.title;
+const ssulka = document.novoeMesto.ssulka;
 	// Переменные для создания начальных карточек.
 const templCard = document.querySelector('#card').content;
 const grid = document.querySelector('.grid');
 	// Переменные popupimg
-let popupImg = document.querySelector('.popupimg');
-let imgImg = document.querySelector('popupimg__img');
-let closeImg = document.querySelector('#closeImg');
-let pImg = document.querySelector('popupimg__p');
+const popupImg = document.querySelector('.popupimg');
+const imgImg = document.querySelector('popupimg__img');
+const closeImg = document.querySelector('#closeImg');
+const pImg = document.querySelector('popupimg__p');
+
+function addCard(subscr, source) {
+	const elemGrid = templCard.cloneNode(true);
+	elemGrid.querySelector('.element__text').textContent = subscr;
+	const img = elemGrid.querySelector('.element__img');
+	img.addEventListener('click', function(evt) {
+		const evTar = evt.target;
+		let tekEl = img.closest('.element');
+		showImg(tekEl);
+	}	);
+	img.src = source;
+	const vLikeButton = elemGrid.querySelector('.element__button');
+	vLikeButton.addEventListener('click', function(evt) {
+		const evTar = evt.target;
+		evTar.classList.toggle('element__button_liked');
+	}	);
+	const vTrashButton = elemGrid.querySelector('.element__trash');
+	vTrashButton.addEventListener('click',function(evt) {
+		const evTar = evt.target;
+		evt.target.closest('.element').remove();
+	}	);
+	grid.prepend(elemGrid);
+}
+
+function startGrid() {
+	grid.innerHTML = '';
+	for (let i = 0; i < initialCards.length; i++) {
+		addCard(initialCards[i].name, initialCards[i].link);
+	}
+}
+startGrid();
+
+function newCard(evt) {
+	evt.preventDefault();
+	addCard(title.value, ssulka.value);
+	closePopup(popupadd);
+	title.value = '';
+	ssulka.value = '';
+}
 
 
-function createGrid(){
-	grid.innerHTML='';
-	for(let i=0 ; i<initialCards.length;i++){
-		const elemGrid = templCard.cloneNode(true);
-		elemGrid.querySelector('.element__text').textContent = initialCards[i].name;
-		let img = elemGrid.querySelector('.element__img');
-		img.addEventListener('click',function(evt){	const evTar = evt.target;
-													let tekEl = img.closest('.element');
-													showImg(tekEl);	});
-		img.src = initialCards[i].link;
-		let vLikeButton = elemGrid.querySelector('.element__button');
-		vLikeButton.addEventListener('click', function (evt) {	const evTar = evt.target;
-																if(evTar.getAttribute('src')==='./images/like.svg'){evTar.setAttribute('src','./images/blackLike.svg');}
-																else{evTar.setAttribute('src','./images/like.svg');}
-															});
-		let vTrashButton = elemGrid.querySelector('.element__trash');
-		vTrashButton.addEventListener('click',function(evt){const evTar = evt.target;
-															let tekEl = vTrashButton.closest('.element');
-															fRemove(tekEl); });
-		grid.append(elemGrid);  
-			
-		
-														}
-																									
-														}
+function showPopup(popup) {	popup.classList.remove('disnone');	}
 
-createGrid();
+function showPopupProf(popup) {
+	valueName.setAttribute('value', profName.textContent);
+	valueJob.setAttribute('value', profJob.textContent);
+	showPopup(popup);
+}
 
-function showPopup (a) {	a.classList.remove('disnone');	}
-
-function showPopupProf (a) {	valueName.setAttribute('value', profName.textContent);
-								valueJob.setAttribute('value', profJob.textContent);
-								showPopup(a);	}
-
-function closePopup (a) {	a.classList.add('disnone');	}
+function closePopup(popup) {	popup.classList.add('disnone');	}
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
 function formSubmitHandler (evt) {
@@ -96,43 +109,22 @@ function formSubmitHandler (evt) {
 	closePopup (popup);
 }
 
-function addMesto(evt) {	evt.preventDefault();
-							const elemGrid = templCard.cloneNode(true);
-							elemGrid.querySelector('.element__text').textContent = title.value;
-							let img=elemGrid.querySelector('.element__img');
-							img.addEventListener('click',function(evt){	const evTar = evt.target;
-																		let tekEl = img.closest('.element');
-																		showImg(tekEl);		});
-							img.src = ssulka.value;
-							let vLikeButton = elemGrid.querySelector('.element__button');
-							vLikeButton.addEventListener('click', function (evt) {	const evTar = evt.target;
-																					if(evTar.getAttribute('src')==='./images/like.svg'){evTar.setAttribute('src','./images/blackLike.svg');}
-																					else{evTar.setAttribute('src','./images/like.svg');}	});
-							let vTrashButton = elemGrid.querySelector('.element__trash');
-							vTrashButton.addEventListener('click',function(evt){	const evTar = evt.target;
-																					let tekEl = vTrashButton.closest('.element');
-																					fRemove(tekEl); });
-							grid.prepend(elemGrid);
-							closePopup (popupadd);
-							title.value = '';
-							ssulka.value = '';	}
-
-function fRemove(a){a.remove();}
-
-function showImg(a)	{let im=document.querySelector('.popupimg__img');
-					let bi=a.querySelector('.element__img');
-					let image=bi.src;
-					im.src=image;
-					let p=document.querySelector('.popupimg__p');
-					let bp=a.querySelector('.element__text');
-					let title=bp.textContent;
-					p.textContent=title;
-					showPopup(popupImg);	}
+function showImg(card) {
+	let bigImg = document.querySelector('.popupimg__img');
+	let smallImg = card.querySelector('.element__img');
+	let image = smallImg.src;
+	bigImg.src = image;
+	let p = document.querySelector('.popupimg__p');
+	let cardP = card.querySelector('.element__text');
+	let title = cardP.textContent;
+	p.textContent = title;
+	showPopup(popupImg);
+}
 
 edit.addEventListener ('click',function(){showPopupProf(popup)});
 add.addEventListener ('click',function(){showPopup(popupadd)});
 formElement.addEventListener('submit', formSubmitHandler);// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-formAdd.addEventListener('submit',addMesto);
+formAdd.addEventListener('submit',newCard);
 closeProf.addEventListener('click',function(){closePopup(popup);});
 closeAdd.addEventListener('click',function(){closePopup(popupadd);});
 closeImg.addEventListener('click',function(){closePopup(popupImg);});

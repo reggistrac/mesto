@@ -30,52 +30,8 @@
 </section>
 
 <section class="grid">
-
 </section>
- <!--   <section class="grid">
-        <div class="element">
-            <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
-            <div class="element__subscribe">
-                <h3 class="element__text">Карачаево-Черкесия</h3>
-                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
-            </div>
-        </div>
-        <div class="element">
-            <img class="element__img" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-            <div class="element__subscribe">
-                <h3 class="element__text">Гора Эльбрус</h3>
-                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
-            </div>
-        </div>
-        <div class="element">
-            <img class="element__img" src="./images/dombay.jpg" alt="Домбай">
-            <div class="element__subscribe">
-                <h3 class="element__text">Домбай</h3>
-                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
-            </div>
-        </div>
-        <div class="element">
-            <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
-            <div class="element__subscribe">
-                <h3 class="element__text">Карачаево-Черкесия</h3>
-                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
-            </div>
-        </div>
-        <div class="element">
-            <img class="element__img" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-            <div class="element__subscribe">
-                <h3 class="element__text">Гора Эльбрус</h3>
-                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
-            </div>
-        </div>
-        <div class="element">
-            <img class="element__img" src="./images/dombay.jpg" alt="Домбай">
-            <div class="element__subscribe">
-                <h3 class="element__text">Домбай</h3>
-                <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
-            </div>
-		</div>
-	</section>-->
+
 </main>
 
 <footer class="footer">
@@ -89,8 +45,8 @@
 	<form class="popup__editform" name="namjob">
 		<button class="close" id="closeProf" type="button" name="closeProf"></button>
 		<h2 class="popup__text">Редактировать профиль</h2>
-		<input class="popup__inputtext" type="text" name="inputName">
-		<input class="popup__inputtext" type="text" name="inputJob"> 
+		<input class="popup__inputtext" type="text" name="inputName" placeholder="Имя Фамилия">
+		<input class="popup__inputtext" type="text" name="inputJob" placeholder="Деятельность"> 
 		<button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
 	</form>
 </div>
@@ -99,8 +55,8 @@
 	<form class="popupadd__editform" name="novoeMesto">
 		<button class="close" id="closeAdd" type="button" name="closeAdd"></button>
 		<h2 class="popupadd__text">Новое место</h2>
-		<input class="popupadd__inputtext" type="text" name="title" placeholder="Название">
-		<input class="popupadd__inputtext" type="text" name="ssulka" placeholder="Ссылка на картинку"> 
+		<input class="popupadd__inputtext" type="text" name="title" placeholder="Название" required>
+		<input class="popupadd__inputtext" type="text" name="ssulka" placeholder="Ссылка на картинку" required> <!-- Если type="url" - картинки с компьютера не открываются. -->
 		<button class="popupadd__submit" type="submit" value="Создать">Создать</button>
 	</form>
 </div>
