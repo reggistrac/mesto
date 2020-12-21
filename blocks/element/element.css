@@ -8,11 +8,14 @@
 
 @import url('./__like/element__like.css');
 
+@import url('./__trash/element__trash.css');
+
 .element {
 	width: 100%;
-	max-width: 282px;	/* Без max-width ломается вёрстка при сжимании */
-    margin: 0px;		/* страницы, т.к картинки разного размера. */
+	max-width: 282px;
+	margin: 0px;
+	position: relative;
     background-color: white;
     border-radius: 10px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }

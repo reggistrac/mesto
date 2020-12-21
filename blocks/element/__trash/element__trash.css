@@ -1,0 +1,18 @@
+.element__trash {
+	margin: 0px;
+	padding: 4px 3px 0px 3px;
+	border: 0px;
+	position: absolute;
+	top: 16px;
+	right: 12px;
+	z-index: 2;
+	background-color: rgba(00, 00, 00, 0.2);
+	border-radius: 5px;
+	transition: background-color 0.5s linear 0s, opacity 0.5s linear 0s;
+}
+
+.element__trash:hover {
+	opacity: 0.6;
+	background-color: rgba(00, 00, 00, 1);
+	cursor: pointer;
+}

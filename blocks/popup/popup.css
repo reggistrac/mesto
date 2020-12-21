@@ -2,13 +2,11 @@
 
 @import url('./__text/popup__text.css');
 
-@import url('./__close/popup__close.css');
-
 @import url('./__inputtext/popup__inputtext.css');
 
 @import url('./__submit/popup__submit.css');
 
-@import url('./_disnone/popup_disnone.css');
+
 
 .popup {
     position: fixed;
@@ -17,5 +15,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-	z-index: 2;
+	z-index: 3;
+	transition: visibility 0.5s, opacity 0.5s linear;
 }

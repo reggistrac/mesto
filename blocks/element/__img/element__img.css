@@ -1,4 +1,14 @@
 .element__img {
-    object-fit: cover;
-    max-height: 282px;
+	object-position: center;
+	
+	width: 100%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 282px;
+	transition: transform 0.25s linear 0s;
+	
+}
+
+.element__img:hover{
+	transform: scale(1.1, 1.1);
 }

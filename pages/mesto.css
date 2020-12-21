@@ -14,8 +14,16 @@
 
 @import url('../blocks/popup/popup.css');
 
+@import url('../blocks/popupadd/popupadd.css');
+
+@import url('../blocks/popupimg/popupimg.css');
+
 @import url('../blocks/grid/grid.css');
 
 @import url('../blocks/element/element.css');
 
 @import url('../blocks/footer/footer.css');
+
+@import url('../blocks/close/close.css');
+
+@import url('../blocks/disnone/disnone.css');

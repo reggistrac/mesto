@@ -9,30 +9,34 @@
 </head>
 
 <body class="body">
- <div class="content">
+<div class="content">
 
 <header class="header">
     <div class="header__logo"></div>
 </header>
 
 <main class="main">
-    <section class="profile">
-        <img class="profile__avatar" src="./images/kusto.jpg" alt="Фотография Жака-Ива Кусто">
-        <div class="profile__info">
-            <div class="profile__str">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__edit" type="button" name="profileEdit"><img src="./images/EditButon.svg" alt="Edit"></button>
-            </div>
-            <h2 class="profile__job">Исследователь океана</h2>
-        </div>
-        <button class="profile__addbutton" type="button" name="addButton"><img src="./images/AddButton.svg" alt="Add"></button>
-    </section>
 
-    <section class="grid">
+<section class="profile">
+	<img class="profile__avatar" src="./images/kusto.jpg" alt="Фотография Жака-Ива Кусто">
+	<div class="profile__info">
+		<div class="profile__str">
+			<h1 class="profile__name">Жак-Ив Кусто</h1>
+			<button class="profile__edit" type="button" name="profileEdit"><img src="./images/EditButon.svg" alt="Edit"></button>
+		</div>
+		<h2 class="profile__job">Исследователь океана</h2>
+	</div>
+	<button class="profile__addbutton" type="button" name="addButton"><img src="./images/AddButton.svg" alt="Add"></button>
+</section>
+
+<section class="grid">
+
+</section>
+ <!--   <section class="grid">
         <div class="element">
             <img class="element__img" src="./images/karachaevo-cherkesia.jpg" alt="Карачаево-Черкесия">
             <div class="element__subscribe">
-                <h3 class="element__text">Карачаево-Черкесия</h3>	<!-- h2 был в profile__job -->
+                <h3 class="element__text">Карачаево-Черкесия</h3>
                 <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
         </div>
@@ -71,7 +75,7 @@
                 <button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
             </div>
 		</div>
-	</section>
+	</section>-->
 </main>
 
 <footer class="footer">
@@ -81,15 +85,44 @@
 
 </div> <!-- content -->
 
-<div class="popup popup_disnone">
+<div class="popup disnone">
 	<form class="popup__editform" name="namjob">
-		<button class="popup__close" type="button" name="closeButton"></button>
+		<button class="close" id="closeProf" type="button" name="closeProf"></button>
 		<h2 class="popup__text">Редактировать профиль</h2>
 		<input class="popup__inputtext" type="text" name="inputName">
 		<input class="popup__inputtext" type="text" name="inputJob"> 
 		<button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
 	</form>
 </div>
+
+<div class="popupadd disnone">
+	<form class="popupadd__editform" name="novoeMesto">
+		<button class="close" id="closeAdd" type="button" name="closeAdd"></button>
+		<h2 class="popupadd__text">Новое место</h2>
+		<input class="popupadd__inputtext" type="text" name="title" placeholder="Название">
+		<input class="popupadd__inputtext" type="text" name="ssulka" placeholder="Ссылка на картинку"> 
+		<button class="popupadd__submit" type="submit" value="Создать">Создать</button>
+	</form>
+</div>
+
+<div class="popupimg disnone">
+	<div class="popupimg__big">
+		<button class="close" id="closeImg" type="button" name="closeImg"></button>
+		<img class="popupimg__img" src="">
+		<p class="popupimg__p"></p>
+	</div>
+</div>
+
+<template id="card">
+	<div class="element">
+		<img class="element__img" src="" alt="">
+		<button class="element__trash" type="button" name="trash"><img src="./images/Trash.svg" alt="trash"></button>
+		<div class="element__subscribe">
+			<h3 class="element__text"></h3>
+			<button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
+		</div>
+	</div>
+</template>
 
 <script src="./script/script.js"></script>
 </body>
