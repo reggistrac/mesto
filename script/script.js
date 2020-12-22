@@ -1,7 +1,7 @@
 const initialCards = [
     {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+		name: 'Архыз',
+		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
     },
     {
         name: 'Челябинская область',
@@ -50,47 +50,35 @@ const imgImg = document.querySelector('popupimg__img');
 const closeImg = document.querySelector('#closeImg');
 const pImg = document.querySelector('popupimg__p');
 
-function addCard(subscr, source) {
+function createCard(subscr, source) {
 	const elemGrid = templCard.cloneNode(true);
 	elemGrid.querySelector('.element__text').textContent = subscr;
 	const img = elemGrid.querySelector('.element__img');
-	img.addEventListener('click', function(evt) {
-		const evTar = evt.target;
-		let tekEl = img.closest('.element');
-		showImg(tekEl);
-	}	);
+	img.addEventListener('click', function(evt) {	showImg(subscr, source);	}	);
 	img.src = source;
+	img.alt = subscr + ' - не загрузилось(';
 	const vLikeButton = elemGrid.querySelector('.element__button');
-	vLikeButton.addEventListener('click', function(evt) {
-		const evTar = evt.target;
-		evTar.classList.toggle('element__button_liked');
-	}	);
+	vLikeButton.addEventListener('click', function(evt) {	evt.target.classList.toggle('element__button_liked');	}	);
 	const vTrashButton = elemGrid.querySelector('.element__trash');
-	vTrashButton.addEventListener('click',function(evt) {
-		const evTar = evt.target;
-		evt.target.closest('.element').remove();
-	}	);
-	grid.prepend(elemGrid);
+	vTrashButton.addEventListener('click', function(evt) {	evt.target.closest('.element').remove();	}	);
+	return elemGrid;
+}
+function adding(what, where) {
+	where.prepend(what);
 }
 
-function startGrid() {
-	grid.innerHTML = '';
-	for (let i = 0; i < initialCards.length; i++) {
-		addCard(initialCards[i].name, initialCards[i].link);
-	}
-}
+function startGrid() {	initialCards.forEach(function(item) {	adding(createCard(item.name, item.link), grid);	}	);	}
 startGrid();
 
 function newCard(evt) {
 	evt.preventDefault();
-	addCard(title.value, ssulka.value);
+	adding(createCard(title.value, ssulka.value), grid);
 	closePopup(popupadd);
-	title.value = '';
-	ssulka.value = '';
+	formAdd.reset();
 }
 
 
-function showPopup(popup) {	popup.classList.remove('disnone');	}
+function showPopup(popup) {	popup.classList.add('opened');	}
 
 function showPopupProf(popup) {
 	valueName.setAttribute('value', profName.textContent);
@@ -98,26 +86,20 @@ function showPopupProf(popup) {
 	showPopup(popup);
 }
 
-function closePopup(popup) {	popup.classList.add('disnone');	}
+function closePopup(popup) {	popup.classList.remove('opened');	}
 
-// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
-function formSubmitHandler (evt) {
+function formSubmitHandler (evt) {// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы. Так мы можем определить свою логику отправки. О том, как это делать, расскажем позже.
-	// Вставьте новые значения с помощью textContent
-	profName.textContent = valueName.value;
+	profName.textContent = valueName.value;// Вставьте новые значения с помощью textContent
 	profJob.textContent = valueJob.value;
 	closePopup (popup);
 }
 
-function showImg(card) {
-	let bigImg = document.querySelector('.popupimg__img');
-	let smallImg = card.querySelector('.element__img');
-	let image = smallImg.src;
-	bigImg.src = image;
-	let p = document.querySelector('.popupimg__p');
-	let cardP = card.querySelector('.element__text');
-	let title = cardP.textContent;
-	p.textContent = title;
+function showImg(pCard, smallImg) {
+	const pImg = document.querySelector('.popupimg__p');
+	pImg.textContent = pCard;
+	const bigImg = document.querySelector('.popupimg__img');
+	bigImg.src = smallImg;	
 	showPopup(popupImg);
 }
 
