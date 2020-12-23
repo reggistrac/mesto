@@ -54,20 +54,18 @@ function createCard(subscr, source) {
 	const elemGrid = templCard.cloneNode(true);
 	elemGrid.querySelector('.element__text').textContent = subscr;
 	const img = elemGrid.querySelector('.element__img');
-	img.addEventListener('click', function(evt) {	showImg(subscr, source);	}	);
+	img.addEventListener('click', function() {showImg(subscr, source);});
 	img.src = source;
 	img.alt = subscr + ' - не загрузилось(';
 	const vLikeButton = elemGrid.querySelector('.element__button');
-	vLikeButton.addEventListener('click', function(evt) {	evt.target.classList.toggle('element__button_liked');	}	);
+	vLikeButton.addEventListener('click', function(evt) {evt.target.classList.toggle('element__button_liked');});
 	const vTrashButton = elemGrid.querySelector('.element__trash');
-	vTrashButton.addEventListener('click', function(evt) {	evt.target.closest('.element').remove();	}	);
+	vTrashButton.addEventListener('click', function(evt) {evt.target.closest('.element').remove();});
 	return elemGrid;
 }
-function adding(what, where) {
-	where.prepend(what);
-}
+function adding(what, where) {	where.prepend(what);}
 
-function startGrid() {	initialCards.forEach(function(item) {	adding(createCard(item.name, item.link), grid);	}	);	}
+function startGrid() {initialCards.forEach(function(item) {adding(createCard(item.name, item.link), grid);});}
 startGrid();
 
 function newCard(evt) {
@@ -77,8 +75,7 @@ function newCard(evt) {
 	formAdd.reset();
 }
 
-
-function showPopup(popup) {	popup.classList.add('opened');	}
+function showPopup(popup) {popup.classList.add('opened');}
 
 function showPopupProf(popup) {
 	valueName.setAttribute('value', profName.textContent);
@@ -86,7 +83,7 @@ function showPopupProf(popup) {
 	showPopup(popup);
 }
 
-function closePopup(popup) {	popup.classList.remove('opened');	}
+function closePopup(popup) {popup.classList.remove('opened');}
 
 function formSubmitHandler (evt) {// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы. Так мы можем определить свою логику отправки. О том, как это делать, расскажем позже.
@@ -99,7 +96,8 @@ function showImg(pCard, smallImg) {
 	const pImg = document.querySelector('.popupimg__p');
 	pImg.textContent = pCard;
 	const bigImg = document.querySelector('.popupimg__img');
-	bigImg.src = smallImg;	
+	bigImg.src = smallImg;
+	bigImg.alt =' Не загрузилось(';
 	showPopup(popupImg);
 }
 
