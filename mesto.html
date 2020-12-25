@@ -42,21 +42,25 @@
 </div> <!-- content -->
 
 <div class="popup">
-	<form class="popup__editform" name="namjob">
+	<form class="popup__editform" name="namjob" novalidate>
 		<button class="close" id="closeProf" type="button" name="closeProf"></button>
 		<h2 class="popup__text">Редактировать профиль</h2>
-		<input class="popup__inputtext" type="text" name="inputName" placeholder="Имя Фамилия">
-		<input class="popup__inputtext" type="text" name="inputJob" placeholder="Деятельность"> 
+		<input class="popup__inputtext" type="text" name="inputName" minlength="2" maxlength="40" required placeholder="Имя Фамилия">
+		<span class="popup__errormes" id="inputNameError">Чёт не так</span>
+		<input class="popup__inputtext" type="text" name="inputJob"  minlength="2" maxlength="200" required placeholder="Деятельность">
+		<span class="popup__errormes" id="inputJobError">Чёт не так</span> 
 		<button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
 	</form>
 </div>
 
 <div class="popupadd">
-	<form class="popupadd__editform" name="novoeMesto">
+	<form class="popupadd__editform" name="novoeMesto" novalidate>
 		<button class="close" id="closeAdd" type="button" name="closeAdd"></button>
 		<h2 class="popupadd__text">Новое место</h2>
-		<input class="popupadd__inputtext" type="text" name="title" placeholder="Название" required>
-		<input class="popupadd__inputtext" type="text" name="ssulka" placeholder="Ссылка на картинку" required> <!-- Если type="url" - картинки с компьютера не открываются. -->
+		<input class="popupadd__inputtext" type="text" name="title" minlength="2" maxlength="30" placeholder="Название" required>
+		<span class="popupadd__errormes" id="titleError">Чёт не так</span>
+		<input class="popupadd__inputtext" type="url" name="ssulka" placeholder="Ссылка на картинку" required>
+		<span class="popupadd__errormes" id="ssulkaError">Чёт не так</span>
 		<button class="popupadd__submit" type="submit" value="Создать">Создать</button>
 	</form>
 </div>
@@ -81,5 +85,6 @@
 </template>
 
 <script src="./script/script.js"></script>
+<script src="./script/validate.js"></script>
 </body>
 </html>

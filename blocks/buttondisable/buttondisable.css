@@ -1,0 +1,11 @@
+.buttondisable{
+	background-color: white;
+	opacity: 0.2;
+	color: black;
+
+}
+
+.buttondisable:hover{
+	opacity: 0.2;
+	cursor: default;
+}

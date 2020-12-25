@@ -1,7 +1,8 @@
 .popup__inputtext {
 	width: calc(100% - 72px);
 	height: 25px;
-	margin: 30px auto 0px auto;
+	margin: 11px auto 0px auto;
+	padding: 0px;
 	border-width: 0px 0px 2px 0px;
 	border-color: rgba(00, 00, 00, 0.2);
 	font-family: 'Inter','Arial', sans-serif;

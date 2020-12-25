@@ -49,6 +49,7 @@ const popupImg = document.querySelector('.popupimg');
 const imgImg = document.querySelector('popupimg__img');
 const closeImg = document.querySelector('#closeImg');
 const pImg = document.querySelector('popupimg__p');
+let openPopup;
 
 function createCard(subscr, source) {
 	const elemGrid = templCard.cloneNode(true);
@@ -75,19 +76,31 @@ function newCard(evt) {
 	formAdd.reset();
 }
 
-function showPopup(popup) {popup.classList.add('opened');}
 
-function showPopupProf(popup) {
+function showPopup(vpopup) {
+	openPopup = vpopup;
+	document.addEventListener('keydown', addEscape);
+	vpopup.classList.add('opened');
+}
+function addEscape(evt) { if(evt.key === 'Escape') { closePopup(openPopup);	}	}
+
+function showPopupProf(vpopup) {
 	valueName.setAttribute('value', profName.textContent);
 	valueJob.setAttribute('value', profJob.textContent);
-	showPopup(popup);
+	const inputList = Array.from(formElement.querySelectorAll('input'));
+	const button = formElement.querySelector('button[type="submit"]');
+	toggleButton(inputList, button, 'buttondisable');
+	showPopup(vpopup);
 }
 
-function closePopup(popup) {popup.classList.remove('opened');}
+function closePopup(vpopup) {
+	document.removeEventListener('keydown', addEscape);
+	vpopup.classList.remove('opened');
+}
 
-function formSubmitHandler (evt) {// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы. Так мы можем определить свою логику отправки. О том, как это делать, расскажем позже.
-	profName.textContent = valueName.value;// Вставьте новые значения с помощью textContent
+function formSubmitHandler (evt) {
+    evt.preventDefault();
+	profName.textContent = valueName.value;
 	profJob.textContent = valueJob.value;
 	closePopup (popup);
 }
@@ -101,10 +114,11 @@ function showImg(pCard, smallImg) {
 	showPopup(popupImg);
 }
 
-edit.addEventListener ('click',function(){showPopupProf(popup)});
-add.addEventListener ('click',function(){showPopup(popupadd)});
-formElement.addEventListener('submit', formSubmitHandler);// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-formAdd.addEventListener('submit',newCard);
-closeProf.addEventListener('click',function(){closePopup(popup);});
-closeAdd.addEventListener('click',function(){closePopup(popupadd);});
-closeImg.addEventListener('click',function(){closePopup(popupImg);});
+edit.addEventListener ('click', function(){showPopupProf(popup)});
+add.addEventListener ('click', function(){showPopup(popupadd)});
+formElement.addEventListener('submit', formSubmitHandler);
+formAdd.addEventListener('submit', newCard);
+
+popup.addEventListener('click', function(evt){ if(evt.target.classList.contains('close') || evt.target.classList.contains('popup')){closePopup(popup);}	}	);
+popupadd.addEventListener('click', function(evt){ if(evt.target.classList.contains('close') || evt.target.classList.contains('popupadd')){closePopup(popupadd);}	}	);
+popupImg.addEventListener('click', function(evt){ if(evt.target.classList.contains('close') || evt.target.classList.contains('popupimg')){closePopup(popupImg);}	}	);

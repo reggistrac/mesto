@@ -1,0 +1,19 @@
+.popupadd__errormes{
+	width: calc(100% - 72px);
+	height: 19px;
+	margin: -2px auto 0px auto;
+	padding: 2px 0px 0px 0px;
+	font-family: 'Inter','Arial', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	color: red;
+	border-top: 2px solid red;
+	visibility: hidden;
+}
+
+@media ( max-width: 550px){
+	.popupadd__errormes{
+		width: calc(100% - 40px);
+	}
+}
