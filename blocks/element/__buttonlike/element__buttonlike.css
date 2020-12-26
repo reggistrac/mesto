@@ -1,4 +1,4 @@
-.element__button {
+.element__buttonlike {
 	width: 20px;
 	height: 18px;
 	margin-top: 30px;
@@ -8,7 +8,7 @@
 	transition: opacity 0.5s linear 0s;
 }
 
-.element__button:hover {
+.element__buttonlike:hover {
 	opacity: 0.6;
 	cursor: pointer;
 }

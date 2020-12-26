@@ -1,4 +1,4 @@
-.element__trash {
+.element__buttontrash {
 	margin: 0px;
 	padding: 4px 3px 0px 3px;
 	border: 0px;
@@ -11,7 +11,7 @@
 	transition: background-color 0.5s linear 0s, opacity 0.5s linear 0s;
 }
 
-.element__trash:hover {
+.element__buttontrash:hover {
 	opacity: 0.6;
 	background-color: rgba(00, 00, 00, 1);
 	cursor: pointer;

@@ -1,4 +1,4 @@
-function errorMes(input) {
+function toggleErrorMes(input) {
 	const inputError = document.querySelector(`#${input.name}Error`);
 		if(input.validity.valid) {	inputError.classList.remove('opened');	}
 		else {	inputError.textContent = input.validationMessage;
@@ -23,17 +23,17 @@ function installInput(forma, classButton) {
 	toggleButton(inputList, button, classButton);	
 	inputList.forEach(function(item) {
 		item.addEventListener('input', function () {
-			errorMes(item);
+			toggleErrorMes(item);
 			toggleButton(inputList, button, classButton);
 		}	);
 	}	);
-	
+
 }
-function installform(classButton) {
+function installForm(classButton) {
 	const formList = Array.from(document.querySelectorAll('form'));
 	formList.forEach(function(item) {
 		item.addEventListener('submit', function(evt) {evt.preventDefault();});
 		installInput(item, classButton);
 	}	);
 }
-installform('buttondisable');
+installForm('buttondisable');

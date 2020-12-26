@@ -1,11 +1,11 @@
-.popup__submit {
+.popupprofile__submit {
 	font-family: 'Inter','Arial', sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
     width: 356px;
     height: 48px;
-    margin: 29px auto 0px auto;
+    margin: 20px auto 0px auto;
 	padding: 0px;
 	border: 1px solid black;
 	border-radius: 2px;
@@ -14,13 +14,13 @@
 	transition: opacity 0.5s linear 0s;
 }
 
-.popup__submit:hover {
+.popupprofile__submit:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }
 
 @media ( max-width: 550px) {
-	.popup__submit {
+	.popupprofile__submit {
 		width: 238px;
 		height: 48px;
 		font-size: 14px;

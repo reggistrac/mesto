@@ -4,13 +4,13 @@
 
 @import url('./__text/element__text.css');
 
-@import url('./__button/element__button.css');
+@import url('./__buttonlike/element__buttonlike.css');
 
 @import url('./__like/element__like.css');
 
-@import url('./__trash/element__trash.css');
+@import url('./__buttontrash/element__buttontrash.css');
 
-@import url('./__button/_liked/element__button_liked.css');
+@import url('./__buttonlike/_liked/element__buttonlike_liked.css');
 
 .element {
 	width: 100%;

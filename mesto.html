@@ -1,3 +1,6 @@
+<!--                                       -->
+<!--  Что конкретно свёрстано не по БЭМ ?  -->
+<!--                                       -->
 <!DOCTYPE Html>
 <html lang="ru">
 <head>
@@ -22,7 +25,7 @@
 	<div class="profile__info">
 		<div class="profile__str">
 			<h1 class="profile__name">Жак-Ив Кусто</h1>
-			<button class="profile__edit" type="button" name="profileEdit"><img src="./images/EditButon.svg" alt="Edit"></button>
+			<button class="profile__editbutton" type="button" name="profileEdit"><img src="./images/EditButon.svg" alt="Edit"></button>
 		</div>
 		<h2 class="profile__job">Исследователь океана</h2>
 	</div>
@@ -41,15 +44,15 @@
 
 </div> <!-- content -->
 
-<div class="popup">
-	<form class="popup__editform" name="namjob" novalidate>
+<div class="popupprofile">
+	<form class="popupprofile__editform" name="namjob" novalidate>
 		<button class="close" id="closeProf" type="button" name="closeProf"></button>
-		<h2 class="popup__text">Редактировать профиль</h2>
-		<input class="popup__inputtext" type="text" name="inputName" minlength="2" maxlength="40" required placeholder="Имя Фамилия">
-		<span class="popup__errormes" id="inputNameError">Чёт не так</span>
-		<input class="popup__inputtext" type="text" name="inputJob"  minlength="2" maxlength="200" required placeholder="Деятельность">
-		<span class="popup__errormes" id="inputJobError">Чёт не так</span> 
-		<button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
+		<h2 class="popupprofile__text">Редактировать профиль</h2>
+		<input class="popupprofile__inputtext" type="text" name="inputName" minlength="2" maxlength="40" required placeholder="Имя Фамилия">
+		<span class="popupprofile__errormes" id="inputNameError">Чёт не так</span>
+		<input class="popupprofile__inputtext" type="text" name="inputJob"  minlength="2" maxlength="200" required placeholder="Деятельность">
+		<span class="popupprofile__errormes" id="inputJobError">Чёт не так</span> 
+		<button class="popupprofile__submit" type="submit" value="Сохранить">Сохранить</button>
 	</form>
 </div>
 
@@ -76,10 +79,10 @@
 <template id="card">
 	<div class="element">
 		<img class="element__img" src="x/y" alt="картинка">
-		<button class="element__trash" type="button" name="trash"><img src="./images/Trash.svg" alt="trash"></button>
+		<button class="element__buttontrash" type="button" name="trash"><img src="./images/Trash.svg" alt="trash"></button>
 		<div class="element__subscribe">
 			<h3 class="element__text"></h3>
-			<button class="element__button" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
+			<button class="element__buttonlike" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
 		</div>
 	</div>
 </template>
