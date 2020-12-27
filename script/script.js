@@ -24,7 +24,7 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-const formaProfile = document.querySelector('.popupprofile__editform');
+const formProfile = document.querySelector('.popupprofile__editform');
 const editButton  = document.querySelector('.profile__editbutton');
 	// Находим поля формы в DOM
 const popupProfile = document.querySelector('.popupprofile');
@@ -36,9 +36,9 @@ const valueJob = document.namjob.inputJob;
 	// Переменные popupadd
 const addCardButton = document.querySelector('.profile__addbutton');
 const popupAdd = document.querySelector('.popupadd');
-const formaAdd = document.querySelector('.popupadd__editform');
+const formAdd = document.querySelector('.popupadd__editform');
 const newCardTitle = document.novoeMesto.title;
-const newCardSsulka = document.novoeMesto.ssulka;
+const newCardLink = document.novoeMesto.link;
 	// Переменные для создания начальных карточек.
 const templCard = document.querySelector('#card').content;
 const grid = document.querySelector('.grid');
@@ -61,9 +61,9 @@ function createCard(subscr, source) {
 	vTrashButton.addEventListener('click', function(evt) {evt.target.closest('.element').remove();});
 	return elemGrid;
 }
-function addingCard(what, where) {	where.prepend(what);}
+function addElement(element, block) {	block.prepend(element);}
 
-function createStartGrid() {initialCards.forEach(function(item) {addingCard(createCard(item.name, item.link), grid);});}
+function createStartGrid() {initialCards.forEach(function(item) {addElement(createCard(item.name, item.link), grid);});}
 createStartGrid();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,8 +81,8 @@ function showPopupProf() {
 	const button = popupProfile.querySelector('button[type="submit"]');
 	const a = profileName.textContent;
 	valueName.setAttribute('value', a);
-	const b = profileJob.textContent;
-	valueJob.setAttribute('value', b);
+	const b = profileJob.textContent;	// a и b - переменные-прокладки, нужны только для того чтобы не передовать оюбъект по ссылке.
+	valueJob.setAttribute('value', b);	// Какое название я должен им придумать?
 	resetError(inputList);
 	toggleButton(inputList, button, 'buttondisable');
 	showPopup(popupProfile);
@@ -90,13 +90,14 @@ function showPopupProf() {
 function showPopupAdd () {
 	const inputList = Array.from(popupAdd.querySelectorAll('input'));
 	const button = popupAdd.querySelector('button[type="submit"]');
-	resetError(inputList);
+	const errorList = Array.from(popupAdd.querySelectorAll('.popupadd__errormes'));
+	errorList.forEach(function(item) { item.classList.remove('opened');	}	);
 	toggleButton(inputList, button, 'buttondisable');
 	showPopup(popupAdd);
 }
-function showImg(pCard, smallImg) {
+function showImg(aCard, smallImg) {
 	const pImg = document.querySelector('.popupimg__p');
-	pImg.textContent = pCard;
+	pImg.textContent = aCard;
 	const bigImg = document.querySelector('.popupimg__img');
 	bigImg.src = smallImg;
 	bigImg.alt =' Не загрузилось(';
@@ -116,28 +117,28 @@ function formSubmitHandler (evt) {
 }
 function newCard(evt) {
 	evt.preventDefault();
-	addingCard(createCard(newCardTitle.value, newCardSsulka.value), grid);
+	addElement(createCard(newCardTitle.value, newCardLink.value), grid);
 	closePopup(popupAdd);
-	formaAdd.reset();
+	formAdd.reset();
 }
 
 
 editButton.addEventListener('click', function() { showPopupProf();	}	);
 addCardButton.addEventListener ('click', function() { showPopupAdd();	}	);
 
-formaProfile.addEventListener('submit', formSubmitHandler);
-formaAdd.addEventListener('submit', newCard);
+formProfile.addEventListener('submit', formSubmitHandler);
+formAdd.addEventListener('submit', newCard);
 
 popupProfile.addEventListener('mousedown', function(evt) {
 	if(evt.target.classList.contains('close') || evt.target.classList.contains('popupprofile')) {
 		closePopup(popupProfile);
-		formaProfile.reset();
+		formProfile.reset();
 	}
 }	);
 popupAdd.addEventListener('mousedown', function(evt) {
 	if(evt.target.classList.contains('close') || evt.target.classList.contains('popupadd')) {
 		closePopup(popupAdd);
-		formaAdd.reset();
+		formAdd.reset();
 	}
 }	);
 popupImg.addEventListener('mousedown', function(evt){ if(evt.target.classList.contains('close') || evt.target.classList.contains('popupimg')) { closePopup(popupImg);}	}	);

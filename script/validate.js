@@ -4,10 +4,10 @@ function toggleErrorMes(input) {
 		else {	inputError.textContent = input.validationMessage;
 				inputError.classList.add('opened');	}
 }
-function chekValidForma(inputList) { return inputList.every(function(item) { return item.validity.valid;	}	);	}
+function chekValidForm(inputList) { return inputList.every(function(item) { return item.validity.valid;	}	);	}
 
 function toggleButton(inputList, button, classButton) {
-	if(chekValidForma(inputList)) {
+	if(chekValidForm(inputList)) {
 		button.removeAttribute('disabled');
 		button.classList.remove(classButton);
 	}
