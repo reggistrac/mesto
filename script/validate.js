@@ -1,39 +1,43 @@
-function toggleErrorMes(input) {
-	const inputError = document.querySelector(`#${input.name}Error`);
-		if(input.validity.valid) {	inputError.classList.remove('opened');	}
+function toggleErrorMes(input, inputErrorClass, errorClass) {
+	const inputError = document.querySelector(`#${input.name}${inputErrorClass}`);
+		if(input.validity.valid) {	inputError.classList.remove(errorClass);	}
 		else {	inputError.textContent = input.validationMessage;
-				inputError.classList.add('opened');	}
+				inputError.classList.add(errorClass);	}
 }
 function chekValidForm(inputList) { return inputList.every(function(item) { return item.validity.valid;	}	);	}
 
-function toggleButton(inputList, button, classButton) {
+function toggleButton(inputList, button, inactiveButtonClass) {
 	if(chekValidForm(inputList)) {
 		button.removeAttribute('disabled');
-		button.classList.remove(classButton);
+		button.classList.remove(inactiveButtonClass);
 	}
 	else {
 		button.setAttribute('disabled', 'true');
-		button.classList.add(classButton);
+		button.classList.add(inactiveButtonClass);
 	}
 }
 
-function installInput(forma, classButton) {
-	const inputList = Array.from(forma.querySelectorAll('input'));
-	const button = forma.querySelector('button[type="submit"]');
-	toggleButton(inputList, button, classButton);	
+function installInput(form, inactiveButtonClass, inputErrorClass, errorClass) {
+	const inputList = Array.from(form.querySelectorAll('input'));
+	const button = form.querySelector('button[type="submit"]');
+	toggleButton(inputList, button, inactiveButtonClass);	
 	inputList.forEach(function(item) {
 		item.addEventListener('input', function () {
-			toggleErrorMes(item);
-			toggleButton(inputList, button, classButton);
+			toggleErrorMes(item, inputErrorClass, errorClass);
+			toggleButton(inputList, button, inactiveButtonClass);
 		}	);
 	}	);
 
 }
-function installForm(classButton) {
+function enableValidation(settings) {
 	const formList = Array.from(document.querySelectorAll('form'));
 	formList.forEach(function(item) {
 		item.addEventListener('submit', function(evt) {evt.preventDefault();});
-		installInput(item, classButton);
+		installInput(item, settings.inactiveButtonClass, settings.inputErrorClass, settings.errorClass);
 	}	);
 }
-installForm('buttondisable');
+enableValidation({
+	inactiveButtonClass: 'buttondisable',
+	inputErrorClass: 'Error',
+	errorClass: 'opened'
+  }); 

@@ -1,3 +1,33 @@
+@import url('./_add/popup_add.css');
+
+@import url('./_img/popup_img.css');
+
+@import url('./_profile/popup_profile.css');
+
+@import url('./__big/popup__big.css');
+
+@import url('./__editform-add/popup__editform-add.css');
+
+@import url('./__editform-profile/popup__editform-profile.css');
+
+@import url('./__img/popup__img.css');
+
+@import url('./__inputtext-add/popup__inputtext-add.css');
+@import url('./__inputtext-adderror/popup__inputtext-adderror.css');
+
+@import url('./__inputtext-profile/popup__inputtext-profile.css');
+@import url('./__inputtext-profileerror/popup__inputtext-profileerror.css');
+
+@import url('./__p/popup__p.css');
+
+@import url('./__submit-add/popup__submit-add.css');
+
+@import url('./__submit-profile/popup__submit-profile.css');
+
+@import url('./__text-add/popup__text-add.css');
+
+@import url('./__text-profile/popup__text-profile.css');
+
 .popup {
 	position: fixed;
 	top: 0px;

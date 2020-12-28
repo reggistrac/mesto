@@ -10,4 +10,4 @@
 * Отображать/скрывать элементы.
 * Сохранять пользовательские значения.
 
-** [Ссылка GitHub](https://reggistrac.github.io/mesto/mesto.html)
+** [Ссылка GitHub](https://reggistrac.github.io/mesto/index.html)

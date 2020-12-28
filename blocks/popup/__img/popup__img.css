@@ -1,0 +1,9 @@
+.popup__img{
+	object-position: center;
+	object-fit: contain;
+	margin: 0px;
+	padding: 0px;
+	max-width: calc(100vw - 15px - 80px);
+	max-height: calc(100vh - 205px);
+	color: white;
+}

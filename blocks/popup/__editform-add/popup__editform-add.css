@@ -1,0 +1,20 @@
+.popup__editform-add {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    height: 330px;
+    position: relative;
+    top: calc(50% - 165px);
+    margin: auto auto auto auto;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+@media ( max-width: 550px) {
+	.popup__editform-add {
+		width: 240px;
+		height: 258px;
+		top: 155px;
+	}
+}
