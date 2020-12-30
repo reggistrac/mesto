@@ -66,7 +66,7 @@ function showPopup(popup) {
 
 function resetError(inputList) {
 	inputList.forEach(function(item) {
-		checkInputValidity(item, 'opened');
+		checkInputValidity(item, 'popup__error_visible');
 	});
 }
 
@@ -76,13 +76,13 @@ function showEditProfilePopup() {
 	const userJob = profileJob.textContent;
 	valueJob.setAttribute('value', userJob);
 	resetError(inputListProfile);
-	toggleButton(inputListProfile, submitEditProfilePopupButton, 'buttondisable');
+	toggleButton(inputListProfile, submitEditProfilePopupButton, 'popup__button_disabled');
 	showPopup(popupProfile);
 }
 function showPopupAdd () {
 	const errorList = Array.from(popupAdd.querySelectorAll('.popup__inputtext-adderror'));
-	errorList.forEach(function(item) { item.classList.remove('opened');	}	);
-	toggleButton(inputListAdd, submitAddPopupButton, 'buttondisable');
+	errorList.forEach(function(item) { item.classList.remove('popup__error_visible');	}	);
+	toggleButton(inputListAdd, submitAddPopupButton, 'popup__button_disabled');
 	showPopup(popupAdd);
 }
 function showImgPopup(name, link) {

@@ -25,8 +25,8 @@ function toggleButton(inputList, button, inactiveButtonClass) {
 	}
 }
 
-function setEventListeners(form, inactiveButtonClass, errorClass) {
-	const inputList = Array.from(form.querySelectorAll('input'));
+function setEventListeners(form, inputSelector, inactiveButtonClass, errorClass) {
+	const inputList = Array.from(form.querySelectorAll(inputSelector));
 	const button = form.querySelector('button[type="submit"]');
 	toggleButton(inputList, button, inactiveButtonClass);	
 	inputList.forEach(function(item) {
@@ -37,15 +37,17 @@ function setEventListeners(form, inactiveButtonClass, errorClass) {
 	});
 }
 function enableValidation(settings) {
-	const formList = Array.from(document.querySelectorAll('form'));
+	const formList = Array.from(document.querySelectorAll(settings.formSelector));
 	formList.forEach(function(item) {
 		item.addEventListener('submit', function(evt) {
 			evt.preventDefault();
 		});
-		setEventListeners(item, settings.inactiveButtonClass, settings.errorClass);
+		setEventListeners(item, settings.inputSelector, settings.inactiveButtonClass, settings.errorClass);
 	});
 }
-enableValidation({							// Остальные ключи не используются:
-	inactiveButtonClass: 'buttondisable',	// формы, поля ввода и кнопки находятся
-	errorClass: 'opened'					// по тегу, поле ввода с ошибкой в макете
-  });										// не изменяется.
+enableValidation({
+	formSelector: '.popup__form',
+	inputSelector: '.popup__input',
+	inactiveButtonClass: 'popup__button_disabled',
+	errorClass: 'popup__error_visible'
+});

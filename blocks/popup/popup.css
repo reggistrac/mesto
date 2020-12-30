@@ -24,9 +24,13 @@
 
 @import url('./__submit-profile/popup__submit-profile.css');
 
+@import url('./__button_disabled/popup__button_disabled.css');
+
 @import url('./__text-add/popup__text-add.css');
 
 @import url('./__text-profile/popup__text-profile.css');
+
+@import url('./__error_visible/popup__error_visible.css');
 
 .popup {
 	position: fixed;
