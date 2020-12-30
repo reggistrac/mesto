@@ -1,5 +1,5 @@
 const formProfile = document.querySelector('.popup__editform-profile');
-const editButton  = document.querySelector('.profile__editbutton');
+const openEditProfilePopupButton  = document.querySelector('.profile__editbutton');
 	// Находим поля формы в DOM
 const popupProfile = document.querySelector('.popup_profile');
 const profileName = document.querySelector('.profile__name');
@@ -10,7 +10,7 @@ const submitEditProfilePopupButton = popupProfile.querySelector('button[type="su
 const valueName = document.namjob.inputName;
 const valueJob = document.namjob.inputJob;
 	// Переменные popupadd
-const addCardButton = document.querySelector('.profile__addbutton');
+const openAdCardPopupButton = document.querySelector('.profile__addbutton');
 const popupAdd = document.querySelector('.popup_add');
 const formAdd = document.querySelector('.popup__editform-add');
 const inputListAdd = Array.from(popupAdd.querySelectorAll('input'));
@@ -34,14 +34,22 @@ function createCard(subscr, source) {
 	img.src = source;
 	img.alt = subscr;
 	const likeButton = elemGrid.querySelector('.element__buttonlike');
-	likeButton.addEventListener('click', function(evt) {evt.target.classList.toggle('element__buttonlike_liked');});
+	likeButton.addEventListener('click', function(evt) {
+		evt.target.classList.toggle('element__buttonlike_liked');
+	});
 	const trashButton = elemGrid.querySelector('.element__buttontrash');
-	trashButton.addEventListener('click', function(evt) {evt.target.closest('.element').remove();});
+	trashButton.addEventListener('click', function(evt) {
+		evt.target.closest('.element').remove();
+	});
 	return elemGrid;
 }
 function addElement(element, block) {	block.prepend(element);}
 
-function createStartGrid() {initialCards.forEach(function(item) {addElement(createCard(item.name, item.link), grid);});}
+function createStartGrid() {
+	initialCards.forEach(function(item) {
+		addElement(createCard(item.name, item.link), grid);
+	});
+}
 createStartGrid();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,9 +64,13 @@ function showPopup(popup) {
 	popup.classList.add('opened');
 }
 
-function resetError(inputList) { inputList.forEach(function(item) {toggleErrorMes(item, 'Error', 'opened');	}	);	}
+function resetError(inputList) {
+	inputList.forEach(function(item) {
+		checkInputValidity(item, 'opened');
+	});
+}
 
-function showPopupProf() {
+function showEditProfilePopup() {
 	const userName = profileName.textContent;
 	valueName.setAttribute('value', userName);
 	const userJob = profileJob.textContent;
@@ -85,7 +97,7 @@ function closePopup(popup) {
 	popup.classList.remove('opened');
 }
 
-function formSubmitHandler (evt) {
+function editProfileFormSubmitHandler (evt) {
     evt.preventDefault();
 	profileName.textContent = valueName.value;
 	profileJob.textContent = valueJob.value;
@@ -99,10 +111,14 @@ function addNewCard(evt) {
 }
 
 
-editButton.addEventListener('click', function() { showPopupProf();	}	);
-addCardButton.addEventListener ('click', function() { showPopupAdd();	}	);
+openEditProfilePopupButton.addEventListener('click', function() {
+	showEditProfilePopup();
+});
+openAdCardPopupButton.addEventListener ('click', function() {
+	showPopupAdd();
+});
 
-formProfile.addEventListener('submit', formSubmitHandler);
+formProfile.addEventListener('submit', editProfileFormSubmitHandler);
 formAdd.addEventListener('submit', addNewCard);
 
 popupProfile.addEventListener('mousedown', function(evt) {
@@ -117,4 +133,8 @@ popupAdd.addEventListener('mousedown', function(evt) {
 		formAdd.reset();
 	}
 }	);
-popupImg.addEventListener('mousedown', function(evt){ if(evt.target.classList.contains('close') || evt.target.classList.contains('popup_img')) { closePopup(popupImg);}	}	);
+popupImg.addEventListener('mousedown', function(evt){
+	if(evt.target.classList.contains('close') || evt.target.classList.contains('popup_img')) { 
+		closePopup(popupImg);
+	}
+});
