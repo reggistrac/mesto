@@ -1,35 +1,22 @@
 export class Card{
-	constructor(data, selector) {
-		this.subscr = data.name;
-		this.source = data.link;
-		this.selector = selector;	}
+	constructor(data, selector, showImgPopup) {
+		this._subscr = data.name;
+		this._source = data.link;
+		this._selector = selector;
+		this._showImgPopup = showImgPopup	}
+
 	_getTemplate() {
-		const templCard = document.querySelector(this.selector).content;// Разметка карточки.
+		const templCard = document.querySelector(this._selector).content;// Разметка карточки.
 		const elemGrid = templCard.cloneNode(true);
-		return elemGrid;	}	
-	_showImgPopup() {
-		const popupImg = document.querySelector('.popup_img');
-		const bigImgPopupImg = document.querySelector('.popup__img');
-		const subscibePopupImg = document.querySelector('.popup__p');
-		const name = this.subscr;
-		const link = this.source;
-		subscibePopupImg.textContent = name;
-		bigImgPopupImg.src = link;
-		bigImgPopupImg.alt = name;
-		function closeByEsc (evt) {
-			if(evt.key === 'Escape') {
-				document.removeEventListener('keydown', closeByEsc );
-				popupImg.classList.remove('opened');
-			}	}
-		document.addEventListener('keydown', closeByEsc );
-		popupImg.classList.add('opened');	}
+		return elemGrid;	}
+
 	createCard() {
 		const elemGrid = this._getTemplate();
-		elemGrid.querySelector('.element__text').textContent = this.subscr;
+		elemGrid.querySelector('.element__text').textContent = this._subscr;
 		const img = elemGrid.querySelector('.element__img');
-		img.addEventListener('click', () => {this._showImgPopup();}	);
-		img.src = this.source;
-		img.alt = this.subscr;
+		img.addEventListener('click', () => {this._showImgPopup(this._subscr, this._source);}	);
+		img.src = this._source;
+		img.alt = this._subscr;
 		const likeButton = elemGrid.querySelector('.element__buttonlike');
 		likeButton.addEventListener('click', function(evt) {	evt.target.classList.toggle('element__buttonlike_liked');	});
 		const trashButton = elemGrid.querySelector('.element__buttontrash');
