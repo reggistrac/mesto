@@ -3,10 +3,10 @@ export class FormValidator {
 		this._settings = settings;
 		this._form = form;
 		this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector)	);
-		this._button = this._form.querySelector('button[type="submit"]');	  }
+		this._button = this._form.querySelector(this._settings.submitButtonSelector);	  }
 
 	resetError() {
-		const errorList = Array.from(this._form.querySelectorAll('.eror'));
+		const errorList = Array.from(this._form.querySelectorAll(this._settings.errorSpanSelector));
 		this._form.reset();
 		errorList.forEach( (item)=>{ item.classList.remove(this._settings.errorClass);	}	);	}
 	

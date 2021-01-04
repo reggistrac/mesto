@@ -15,6 +15,8 @@ const initialCards = [	{	name: 'Архыз',
 							link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'	}	];
 
 const setValid = {	inputSelector: '.popup__input',
+					submitButtonSelector: '.submit',
+					errorSpanSelector: '.error',
 					inactiveButtonClass: 'popup__button_disabled',
 					errorClass: 'popup__error_visible'	}
 
