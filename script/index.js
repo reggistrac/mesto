@@ -78,12 +78,12 @@ function showEditProfilePopup() {
 	valueName.setAttribute('value', userName);
 	const userJob = profileJob.textContent;
 	valueJob.setAttribute('value', userJob);
-	profileValidator.toggleButton(inputListProfile, submitEditProfilePopupButton);
+	profileValidator.toggleButton();
 	showPopup(popupProfile);
 }
 function showPopupAdd () {
 	addCardValidator.resetError();
-	addCardValidator.toggleButton(inputListAdd, submitAddPopupButton);
+	addCardValidator.toggleButton();
 	showPopup(popupAdd);
 }
 function showImgPopup(name, link) { 

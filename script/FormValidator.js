@@ -1,7 +1,9 @@
 export class FormValidator {
 	constructor(settings, form) {
 		this._settings = settings;
-		this._form = form;	  }
+		this._form = form;
+		this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector)	);
+		this._button = this._form.querySelector('button[type="submit"]');	  }
 
 	resetError() {
 		const errorList = Array.from(this._form.querySelectorAll('.eror'));
@@ -15,25 +17,23 @@ export class FormValidator {
 			inputError.textContent = input.validationMessage;
 			inputError.classList.add(this._settings.errorClass);	}	}
 
-	_hasInvalidInput(inputList) {
-		return inputList.every(function(item) {	return item.validity.valid;	});	}
+	_hasInvalidInput() {
+		return this._inputList.every(function(item) {	return item.validity.valid;	});	}
 
-	toggleButton(inputList, button) {
-		if(this._hasInvalidInput(inputList)) {
-			button.removeAttribute('disabled');
-			button.classList.remove(this._settings.inactiveButtonClass);	}
+	toggleButton() {
+		if(this._hasInvalidInput()) {
+			this._button.removeAttribute('disabled');
+			this._button.classList.remove(this._settings.inactiveButtonClass);	}
 		else {
-			button.setAttribute('disabled', 'true');
-			button.classList.add(this._settings.inactiveButtonClass);	}	}
+			this._button.setAttribute('disabled', 'true');
+			this._button.classList.add(this._settings.inactiveButtonClass);	}	}
 
 	_setEventListeners() {
-		const inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
-		const button = this._form.querySelector('button[type="submit"]');
-		this.toggleButton(inputList, button);	
-		inputList.forEach((item)=>{
+		this.toggleButton();	
+		this._inputList.forEach((item)=>{
 			item.addEventListener('input', () => {
 				this._checkInputValidity(item);
-				this.toggleButton(inputList, button);	});	});	}
+				this.toggleButton();	});	});	}
 	
 	enableValidation() {
 		this._form.addEventListener('submit', function(evt) {	evt.preventDefault();	});
