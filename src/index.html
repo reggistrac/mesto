@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Фёдор Никонов">
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="body">
@@ -18,15 +17,15 @@
 <main class="main">
 
 <section class="profile">
-	<img class="profile__avatar" src="./images/kusto.jpg" alt="Фотография Жака-Ива Кусто">
+	<img class="profile__avatar" src="<%=require('./images/kusto.jpg')%>" alt="Фотография Жака-Ива Кусто">
 	<div class="profile__info">
 		<div class="profile__str">
 			<h1 class="profile__name">Жак-Ив Кусто</h1>
-			<button class="profile__editbutton" type="button" name="profileEdit"><img src="./images/EditButon.svg" alt="Edit"></button>
+			<button class="profile__editbutton" type="button" name="profileEdit"><img src="<%=require('./images/EditButon.svg')%>" alt="Edit"></button>
 		</div>
 		<h2 class="profile__job">Исследователь океана</h2>
 	</div>
-	<button class="profile__addbutton" type="button" name="addButton"><img src="./images/AddButton.svg" alt="Add"></button>
+	<button class="profile__addbutton" type="button" name="addButton"><img src="<%=require('./images/AddButton.svg')%>" alt="Add"></button>
 </section>
 
 <section class="grid">
@@ -68,7 +67,7 @@
 <div class="popup popup_img">
 	<div class="popup__big">
 		<button class="close" id="closeImg" type="button" name="closeImg"></button>
-		<img class="popup__img" src="./images/blackLike.svg" alt="картинка">
+		<img class="popup__img" src="<%=require('./images/blackLike.svg')%>" alt="картинка">
 		<p class="popup__p"></p>
 	</div>
 </div>
@@ -76,16 +75,13 @@
 <template id="card">
 	<div class="element">
 		<img class="element__img" src="x/y" alt="картинка">
-		<button class="element__buttontrash" type="button" name="trash"><img src="./images/Trash.svg" alt="trash"></button>
+		<button class="element__buttontrash" type="button" name="trash"><img src="<%=require('./images/Trash.svg')%>" alt="trash"></button>
 		<div class="element__subscribe">
 			<h3 class="element__text"></h3>
-			<button class="element__buttonlike" type="button" name="likeButton"><img class="element__like" src="./images/like.svg" alt="like"></button>
+			<button class="element__buttonlike" type="button" name="likeButton"><img class="element__like" src="<%=require('./images/like.svg')%>" alt="like"></button>
 		</div>
 	</div>
 </template>
 
-<script type="module" src="./script/index.js"></script>
-<script type="module" src="./script/Card.js"></script>
-<script type="module" src="./script/FormValidator.js"></script>
 </body>
 </html>

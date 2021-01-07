@@ -1,4 +1,4 @@
-export class Card{
+export default class Card{
 	constructor(data, selector, showImgPopup) {
 		this._subscr = data.name;
 		this._source = data.link;
