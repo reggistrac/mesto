@@ -13,8 +13,6 @@ export default class Card{
 	_handleClick = ()=>{this._showImgPopup(this._subscribe, this._source);	}
 	_handlelike(evt) {	evt.target.classList.toggle('element__buttonlike_liked');	}
 	_handleTrash(evt) {	evt.target.closest('.element').remove();	}
-/*	"Лучше всего удалить сам элемент карточки this._element
-	После удаления this._element также лучше занулять: this._element = null;" - не понял, что лучше удалять? */
 
 	_setEventListener(item, event, metod) {	item.addEventListener(event, metod);	}
 

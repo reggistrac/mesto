@@ -39,8 +39,8 @@ const popupImg = document.querySelector('.popup_img');
 const bigImgPopupImg = document.querySelector('.popup__img');
 const subscibePopupImg = document.querySelector('.popup__p');
 ////			Классы
-const profilePopupWithForm = new PopupWithForm(popupProfile, formProfile, editProfileFormSubmitHandler);
-const addPopupWithForm = new PopupWithForm(popupAdd, formAdd, addNewCard);
+const profilePopupWithForm = new PopupWithForm({popup:popupProfile, form:formProfile, inputSelector: '.popup__input'}, editProfileFormSubmitHandler);
+const addPopupWithForm = new PopupWithForm({popup:popupAdd, form:formAdd, inputSelector: '.popup__input'}, addNewCard);
 const obPopupWithImage = new PopupWithImage(popupImg, bigImgPopupImg, subscibePopupImg);
 
 const showPopupImg = obPopupWithImage.showPopup.bind(obPopupWithImage);
@@ -70,13 +70,12 @@ function showPopupAdd () {
 	addCardValidator.toggleButton();
 	addPopupWithForm.showPopup();	}
 function editProfileFormSubmitHandler (evt) {
-    evt.preventDefault();
+	evt.preventDefault();
 	infouser.setUserInfo({name:valueName.value, job:valueJob.value});
 	profilePopupWithForm.closePopup();	}
 function addNewCard(evt) {
 	evt.preventDefault();
 	obSection.creataItem({name:newCardTitle.value, link:newCardLink.value});
-	addPopupWithForm.closePopup();
-	formAdd.reset();	}
+	addPopupWithForm.closePopup();	}
 openEditProfilePopupButton.addEventListener('click', function() {	showEditProfilePopup();});
 openAdCardPopupButton.addEventListener ('click', function() {	showPopupAdd();});

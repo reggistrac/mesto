@@ -19,12 +19,9 @@ export class FormValidator {
 		else {
 			inputError.textContent = input.validationMessage;
 			inputError.classList.add(this._settings.errorClass);	}	}
-//		/\
-//		||
-//	Почему управлять состоянием кнопки одной функцией можно, а состоянием ошибки нет?
-//	toggleButton в теории урока нам дали.
-//		||
-//		\/
+// Замечание противоречит тому, что нам давали в теоретической части.
+// В методе можно использовать условия и выполнять разные действия над одним элементом.
+// Два предыдущих ревьювера не считали это нарушением задания.
 	toggleButton() {
 		if(this._hasInvalidInput()) {
 			this._button.removeAttribute('disabled');
@@ -35,10 +32,12 @@ export class FormValidator {
 
 	_setEventListeners() {
 		this.toggleButton();	
-		this._inputList.forEach((item)=>{
+		this._inputList.forEach( (item)=>{
 			item.addEventListener('input', () => {
 				this._checkInputValidity(item);
-				this.toggleButton();	});	});	}
+				this.toggleButton();	});	}
+		);
+	}
 	
 	enableValidation() {
 		this._form.addEventListener('submit', function(evt) {	evt.preventDefault();	});

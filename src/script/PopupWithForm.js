@@ -1,13 +1,26 @@
 import Popup from './Popup.js';
 
 export default class PopupWithForm extends Popup{
-	constructor(popup, form, callback){
-		super(popup);
-		this._form = form;
+	constructor(data, callback){
+		super(data.popup);
+		this._form = data.form;
+		this._inputSelector = data.inputSelector;
 		this._callback = callback;
 	}
-// Собирает данные и сбрасывает форму обработчик субмита.
 
+	_getInputValues(){
+		const inputList = Array.from(this._form.querySelectorAll(this._inputSelector)	);
+		const userInfo =[];
+		inputList.forEach(function(item){
+			userInfo.push(item.value);
+			}
+		);
+		return userInfo;
+	}
+	setEventListeners(){
+		super.setEventListeners();
+		this._form.addEventListener('submit', this._callback);
+	}
 	showPopup(){
 		this._form.addEventListener('submit', this._callback);
 		super.showPopup();
@@ -15,5 +28,6 @@ export default class PopupWithForm extends Popup{
 	closePopup(){
 		this._form.removeEventListener('submit', this._callback);
 		super.closePopup();
+		this._form.reset();
 	}
 }
