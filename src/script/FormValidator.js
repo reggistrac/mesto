@@ -9,17 +9,22 @@ export class FormValidator {
 		const errorList = Array.from(this._form.querySelectorAll(this._settings.errorSpanSelector));
 		this._form.reset();
 		errorList.forEach( (item)=>{ item.classList.remove(this._settings.errorClass);	}	);	}
-	
+
+	_hasInvalidInput() {
+		return this._inputList.every(function(item) {	return item.validity.valid;	});	}
+
 	_checkInputValidity(input) {
 		const inputError = document.querySelector(`#${input.name}Error`);
 		if(input.validity.valid) {	inputError.classList.remove(this._settings.errorClass);	}
 		else {
 			inputError.textContent = input.validationMessage;
 			inputError.classList.add(this._settings.errorClass);	}	}
-
-	_hasInvalidInput() {
-		return this._inputList.every(function(item) {	return item.validity.valid;	});	}
-
+//		/\
+//		||
+//	Почему управлять состоянием кнопки одной функцией можно, а состоянием ошибки нет?
+//	toggleButton в теории урока нам дали.
+//		||
+//		\/
 	toggleButton() {
 		if(this._hasInvalidInput()) {
 			this._button.removeAttribute('disabled');

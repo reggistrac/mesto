@@ -2,10 +2,15 @@ export default class Popup {
 	constructor(selector){
 		this._selector = selector;
 	}
-	_closeByEsc = (evt)=>{
+
+/* Слушатели клика по оверлею/крестику и нажатия Esc добавляются при открытии в showPopup
+и удаляются при закрытии в closePopup. Зачем здесь нужен отдельный метод назначения слушателя
+и почему тогда не нужен метод снятия слушателя? Почему публичный? */
+
+	_closeByEsc = (evt)=>{	// нажатие Esc
 		if(evt.key === 'Escape') {	this.closePopup()	}
 	}
-	_close = (evt)=>{
+	_close = (evt)=>{	// клик по оверлею/крестику
 		if(evt.target.classList.contains('close') || evt.target.classList.contains('popup')) {	this.closePopup();	}
 	}
 	showPopup() {

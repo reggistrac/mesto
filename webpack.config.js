@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: { main: './src/pages/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
@@ -24,11 +24,20 @@ module.exports = {
         use: 'babel-loader',
         exclude: /node_modules/
       },
+
 	{
-          // регулярное выражение, которое ищет все файлы с такими расширениями
-          test: /\.(png|svg|jpg|bmp|gif|woff(2)?|eot|ttf|otf)$/,
-          type: 'asset/resource'
+        	// регулярное выражение, которое ищет все файлы с такими расширениями
+        	test: /\.(png|svg|jpg|bmp|gif)$/,
+        	type: 'asset/resource',
+		generator: {filename: 'images/[name].[contenthash][ext]'}
         },
+	{
+        	// регулярное выражение, которое ищет все файлы с такими расширениями
+        	test: /\.(woff(2)?|eot|ttf|otf)$/,
+        	type: 'asset/resource',
+		generator: {filename: 'vendor/[name].[contenthash][ext]'}
+        },
+
 	{
 	// применять это правило только к CSS-файлам
 	test: /\.css$/,

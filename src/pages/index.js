@@ -1,10 +1,11 @@
-import './pages/index.css';
+import './index.css';
 
-import Section from './script/Section.js';
-import {FormValidator} from './script/FormValidator.js';
-import PopupWithImage from './script/PopupWithImage.js';
-import PopupWithForm from './script/PopupWithForm.js';
-import UserInfo from './script/UserInfo.js';
+import Card from '../script/Card.js';
+import Section from '../script/Section.js';
+import {FormValidator} from '../script/FormValidator.js';
+import PopupWithImage from '../script/PopupWithImage.js';
+import PopupWithForm from '../script/PopupWithForm.js';
+import UserInfo from '../script/UserInfo.js';
 
 const initialCards = [	{	name: 'Архыз', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'	},
 						{	name: 'Челябинская область', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'	},
@@ -35,17 +36,20 @@ const newCardTitle = document.novoeMesto.title;
 const newCardLink = document.novoeMesto.link;
 	// Переменные popupimg
 const popupImg = document.querySelector('.popup_img');
-export const bigImgPopupImg = document.querySelector('.popup__img');
-export const subscibePopupImg = document.querySelector('.popup__p');
+const bigImgPopupImg = document.querySelector('.popup__img');
+const subscibePopupImg = document.querySelector('.popup__p');
 ////			Классы
-const sec = new Section(initialCards,grid);
+const profilePopupWithForm = new PopupWithForm(popupProfile, formProfile, editProfileFormSubmitHandler);
+const addPopupWithForm = new PopupWithForm(popupAdd, formAdd, addNewCard);
+const obPopupWithImage = new PopupWithImage(popupImg, bigImgPopupImg, subscibePopupImg);
 
-const obPoProfil = new PopupWithForm(popupProfile, formProfile, editProfileFormSubmitHandler);
-const obPoAdd = new PopupWithForm(popupAdd, formAdd, addNewCard);
-const obPoImg = new PopupWithImage(popupImg);
+const showPopupImg = obPopupWithImage.showPopup.bind(obPopupWithImage);
 
-const shi = obPoImg.showPopup.bind(obPoImg);
-sec.createStartGrid(shi);
+const obSection = new Section(initialCards, (item)=>{
+	const newCard = new Card(item, '#card', showPopupImg);
+	return newCard;
+}, grid);
+obSection.createStartGrid();
 
 const infouser = new UserInfo({name:profileName, job:profileJob});
 ////			Валидация
@@ -60,23 +64,19 @@ function showEditProfilePopup() {
 	valueJob.setAttribute('value', info.job);
 	profileValidator.resetError();
 	profileValidator.toggleButton();
-	obPoProfil.showPopup();	}
+	profilePopupWithForm.showPopup();	}
 function showPopupAdd () {
 	addCardValidator.resetError();
 	addCardValidator.toggleButton();
-	obPoAdd.showPopup();	}
+	addPopupWithForm.showPopup();	}
 function editProfileFormSubmitHandler (evt) {
     evt.preventDefault();
-	const a = valueName.value;
-	const b = valueJob.value;
-	infouser.setUserInfo({name:a,job:b});
-	obPoProfil.closePopup();	}
+	infouser.setUserInfo({name:valueName.value, job:valueJob.value});
+	profilePopupWithForm.closePopup();	}
 function addNewCard(evt) {
 	evt.preventDefault();
-	const a = newCardTitle.value;
-	const b = newCardLink.value;
-	sec.creataItem({name:a,link:b},shi);
-	obPoAdd.closePopup();
+	obSection.creataItem({name:newCardTitle.value, link:newCardLink.value});
+	addPopupWithForm.closePopup();
 	formAdd.reset();	}
 openEditProfilePopupButton.addEventListener('click', function() {	showEditProfilePopup();});
 openAdCardPopupButton.addEventListener ('click', function() {	showPopupAdd();});

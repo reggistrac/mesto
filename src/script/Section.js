@@ -1,19 +1,22 @@
-import Card from './Card.js';
-
 export default class Section {
-	constructor(items, selector){
+	constructor(items, callback, selector){
 		this._items = items;
+		this._callback = callback;
 		this._selector = selector;
 	}
-	addElement(element, block) {	block.prepend(element);}
-	creataItem(item,callback) {
-		const newCard = new Card(item, '#card', callback);
-		this.addElement(newCard.createCard(), this._selector);
+	addElement(element, block, after) {
+		if(after){block.append(element);}
+		else{block.prepend(element);}
 	}
-	createStartGrid(callback) {
+
+	creataItem(item, after) {
+		const newCard = this._callback(item);
+		this.addElement(newCard.createCard(), this._selector, after);
+	}
+
+	createStartGrid() {
 		this._items.forEach((item)=>{
-			this.creataItem(item,callback);
+			this.creataItem(item, true);
 		}	);
 	}
-	
 }

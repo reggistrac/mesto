@@ -6,6 +6,8 @@ export default class PopupWithForm extends Popup{
 		this._form = form;
 		this._callback = callback;
 	}
+// Собирает данные и сбрасывает форму обработчик субмита.
+
 	showPopup(){
 		this._form.addEventListener('submit', this._callback);
 		super.showPopup();
