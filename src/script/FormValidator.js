@@ -19,9 +19,7 @@ export class FormValidator {
 		else {
 			inputError.textContent = input.validationMessage;
 			inputError.classList.add(this._settings.errorClass);	}	}
-// Замечание противоречит тому, что нам давали в теоретической части.
-// В методе можно использовать условия и выполнять разные действия над одним элементом.
-// Два предыдущих ревьювера не считали это нарушением задания.
+
 	toggleButton() {
 		if(this._hasInvalidInput()) {
 			this._button.removeAttribute('disabled');

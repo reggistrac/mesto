@@ -1,6 +1,6 @@
 export default class Card{
 	constructor(data, selector, showImgPopup) {
-		this._subscribe = data.name;
+		this._subscribe = data.title;
 		this._source = data.link;
 		this._selector = selector;
 		this._showImgPopup = showImgPopup	}
