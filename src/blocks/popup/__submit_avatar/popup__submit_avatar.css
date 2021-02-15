@@ -1,4 +1,4 @@
-.popup__submit-avatar{
+.popup__submit_avatar{
 	font-family: 'Inter','Arial', sans-serif;
 	font-weight: 400;
 	font-size: 18px;
@@ -14,13 +14,13 @@
 	transition: opacity 0.3s linear 0s;
 }
 
-.popup__submit-avatar:hover {
+.popup__submit_avatar:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }
 
 @media ( max-width: 550px) {
-	.popup__submit-avatar{
+	.popup__submit_avatar{
 		width: 238px;
 		height: 48px;
 		font-size: 14px;

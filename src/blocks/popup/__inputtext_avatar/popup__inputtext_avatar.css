@@ -1,4 +1,4 @@
-.popup__inputtext-avatar{
+.popup__inputtext_avatar{
 	width: calc(100% - 72px);
 	height:17px;
 	margin: 8px auto 0px auto;
@@ -11,6 +11,6 @@
 	line-height: 17px;
 }
 
-.popup__inputtext-avatar:first-of-type {
+.popup__inputtext_avatar:first-of-type {
 	margin-top: 49px;
 }

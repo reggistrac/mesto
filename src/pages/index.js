@@ -34,7 +34,7 @@ const valueJob = document.namjob.job;// Поле ввода работы поп�
 const grid = document.querySelector('.grid');// Секция для вставки карточек.
 	// Переменные popupAvatar
 const popupAva = document.querySelector('.popup_avatar');
-const formAva = document.querySelector('.poup__editform-avatar');
+const formAva = document.querySelector('.poup__editform_avatar');
 	// Переменные popupadd
 const popupAdd = document.querySelector('.popup_add');
 const formAdd = document.querySelector('.popup__editform-add');

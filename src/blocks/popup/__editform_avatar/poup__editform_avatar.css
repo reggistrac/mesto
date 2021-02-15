@@ -1,4 +1,4 @@
-.poup__editform-avatar{
+.poup__editform_avatar{
     display: flex;
     flex-direction: column;
     width: 430px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 550px){
-	.poup__editform-avatar{
+	.poup__editform_avatar{
 		width: 282px;
 		height: 322px;
 		top: 123px;
