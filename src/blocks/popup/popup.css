@@ -7,15 +7,15 @@
 
 @import url('./__big/popup__big.css');
 
-@import url('./__editform_avatar/poup__editform_avatar.css');
+@import url('./__editformavatar/poup__editformavatar.css');
 @import url('./__editform-add/popup__editform-add.css');
 @import url('./__editform-profile/popup__editform-profile.css');
 @import url('./__notform/popup__notform.css');
 
 @import url('./__img/popup__img.css');
 
-@import url('./__inputtext_avatar/popup__inputtext_avatar.css');
-@import url('./__inputtext_avatarerror/popup__inputtext_avatarerror.css');
+@import url('./__inputtextavatar/popup__inputtextavatar.css');
+@import url('./__inputtextavatarerror/popup__inputtextavatarerror.css');
 
 @import url('./__inputtext-add/popup__inputtext-add.css');
 @import url('./__inputtext-adderror/popup__inputtext-adderror.css');
@@ -25,14 +25,14 @@
 
 @import url('./__p/popup__p.css');
 
-@import url('./__submit_avatar/popup__submit_avatar.css');
+@import url('./__submitavatar/popup__submitavatar.css');
 @import url('./__submit-add/popup__submit-add.css');
 @import url('./__submit-profile/popup__submit-profile.css');
 @import url('./__button-sure/popup__button-sure.css');
 
 @import url('./__button_disabled/popup__button_disabled.css');
 
-@import url('./__text_avatar/popup__text_avatar.css');
+@import url('./__textavatar/popup__textavatar.css');
 @import url('./__text-add/popup__text-add.css');
 @import url('./__text-profile/popup__text-profile.css');
 @import url('./__text-sure/popup__text-sure.css');
