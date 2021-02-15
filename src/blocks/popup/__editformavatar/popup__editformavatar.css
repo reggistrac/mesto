@@ -1,4 +1,4 @@
-.poup__editformavatar{
+.popup__editformavatar{
     display: flex;
     flex-direction: column;
     width: 430px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 550px){
-	.poup__editformavatar{
+	.popup__editformavatar{
 		width: 282px;
 		height: 322px;
 		top: 123px;
