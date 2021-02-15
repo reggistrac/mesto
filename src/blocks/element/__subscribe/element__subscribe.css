@@ -2,5 +2,6 @@
     max-width: calc(100% - 42px);
     margin: auto;
     display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
+	align-items: center;
 }

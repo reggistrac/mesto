@@ -17,7 +17,7 @@
 <main class="main">
 
 <section class="profile">
-	<img class="profile__avatar" src="<%=require('./images/kusto.jpg')%>" alt="Фотография Жака-Ива Кусто">
+	<button class="profile__avatarbutton" type="button"><img class="profile__avatar" src="<%=require('./images/pencil.svg')%>" alt="сменить автар"></button>
 	<div class="profile__info">
 		<div class="profile__str">
 			<h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -39,6 +39,16 @@
 </footer>
 
 </div> <!-- content -->
+
+<div class="popup popup_avatar">
+	<form class="poup__editform-avatar popup__form" name="newAvatar" novalidate>
+		<button class="close" id="closeProf" type="button" name="closeProf"></button>
+		<h2 class="popup__text-avatar">Обновить аватар</h2>
+		<input class="popup__inputtext-avatar popup__input" type="url" name="avatar" placeholder="Ссылка на картинку" required>
+		<span class="popup__inputtext-avatarerror error" id="avatarError">Чёт не так</span>
+		<button class="popup__submit-avatar submit" type="submit" value="Сохранить">Сохранить</button>
+	</form>
+</div>
 
 <div class="popup popup_profile">
 	<form class="popup__editform-profile popup__form" name="namjob" novalidate>
@@ -72,13 +82,24 @@
 	</div>
 </div>
 
+<div class="popup popup_sure">
+	<div class="popup__notform">
+		<button class="close" id="closeImg" type="button" name="closeImg"></button>
+		<h2 class="popup__text-sure">Вы уверены?</h2>
+		<button class="popup__button-sure submit" id="sureButton" type="button">Да</button>
+	</div>
+</div>
+
 <template id="card">
 	<div class="element">
 		<img class="element__img" src="x/y" alt="картинка">
 		<button class="element__buttontrash" type="button" name="trash"><img src="<%=require('./images/Trash.svg')%>" alt="trash"></button>
 		<div class="element__subscribe">
 			<h3 class="element__text"></h3>
-			<button class="element__buttonlike" type="button" name="likeButton"><img class="element__like" src="<%=require('./images/like.svg')%>" alt="like"></button>
+			<div class="element__group">
+				<button class="element__buttonlike" type="button" name="likeButton"><img class="element__like" src="<%=require('./images/like.svg')%>" alt="like"></button>
+				<p class="element__count">0</p>
+			</div>
 		</div>
 	</div>
 </template>

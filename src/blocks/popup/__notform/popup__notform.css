@@ -1,0 +1,19 @@
+.popup__notform{
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    height: 181px;
+    position: relative;
+    top: calc(50% - 165px);
+    margin: auto auto auto auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media ( max-width: 550px) {
+	.popup__notform {
+		width: 282px;
+		height: 322px;
+		top: 123px;
+	}
+}

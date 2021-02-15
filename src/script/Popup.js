@@ -11,9 +11,8 @@ export default class Popup {
 		if(evt.target.classList.contains('close') || evt.target.classList.contains('popup')) {	this.closePopup();	}
 	}
 	setEventListeners(){
-		this._selector.addEventListener('click', this._close);
-	}									// Мне не жалко, но при 'click' попап закрывается если зажать кнопку на форме,
-										// вывести за пределы и отпустить. А при 'mousedown' такого нет.
+		this._selector.addEventListener('mousedown', this._close);
+	}
 	showPopup() {
 		document.addEventListener('keydown', this._closeByEsc);
 		this._selector.classList.add('opened');

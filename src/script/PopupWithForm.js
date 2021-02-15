@@ -3,6 +3,7 @@ import Popup from './Popup.js';
 export default class PopupWithForm extends Popup{
 	constructor(data, callback){
 		super(data.popup);
+		this._popup = data.popup
 		this._form = data.form;
 		this._inputSelector = data.inputSelector;
 		this._callback = callback;
@@ -16,6 +17,10 @@ export default class PopupWithForm extends Popup{
 			}
 		);
 		return userInfo;
+	}
+	renderLoading=(isLoading)=>{
+		if(isLoading){this._popup.querySelector('.submit').textContent='Сохранение...';}
+		else{this._popup.querySelector('.submit').textContent='Сохранить';}
 	}
 	setEventListeners(){
 		super.setEventListeners();

@@ -4,7 +4,7 @@
     margin-left: 17px;
 	background-color: black;
     border: 1px solid white;
-	transition: opacity 0.5s linear 0s;
+	transition: opacity 0.3s linear 0s;
 }
 
 .profile__editbutton:hover {

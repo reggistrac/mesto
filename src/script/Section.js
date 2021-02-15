@@ -1,6 +1,6 @@
 export default class Section {
-	constructor(items, callback, selector){
-		this._items = items;
+	constructor(/*items, */callback, selector){
+		//this._items = items;
 		this._callback = callback;
 		this._selector = selector;
 	}
@@ -9,13 +9,14 @@ export default class Section {
 		else{block.prepend(element);}
 	}
 
-	creataItem(item, after) {
+	creataItem = (item, after) => {
+		item.title = item.name;
 		const newCard = this._callback(item);
 		this.addElement(newCard.createCard(), this._selector, after);
 	}
 
-	createStartGrid() {
-		this._items.forEach((item)=>{
+	createStartGrid(data) {
+		data.forEach((item)=>{
 			this.creataItem(item, true);
 		}	);
 	}

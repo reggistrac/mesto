@@ -4,9 +4,13 @@
 
 @import url('./__text/element__text.css');
 
+@import url('./__group/element__group.css');
+
 @import url('./__buttonlike/element__buttonlike.css');
 
 @import url('./__like/element__like.css');
+
+@import url('./__count/element__count.css');
 
 @import url('./__buttontrash/element__buttontrash.css');
 
