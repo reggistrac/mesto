@@ -9,13 +9,6 @@ import PopupSure from '../script/PopupSure.js';
 import UserInfo from '../script/UserInfo.js';
 import Api from '../script/Api.js';
 
-const initialCards = [	{	title: 'Архыз', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'	},
-						{	title: 'Челябинская область', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'	},
-						{	title: 'Иваново', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'	},
-						{	title: 'Камчатка', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'	},
-						{	title: 'Холмогорский район', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'	},
-						{	title: 'Байкал', link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'	}	];
-
 const setValid = {	inputSelector: '.popup__input',
 					submitButtonSelector: '.submit',
 					errorSpanSelector: '.error',
@@ -34,7 +27,7 @@ const valueJob = document.namjob.job;// Поле ввода работы поп�
 const grid = document.querySelector('.grid');// Секция для вставки карточек.
 	// Переменные popupAvatar
 const popupAva = document.querySelector('.popup_avatar');
-const formAva = document.querySelector('.poup__editformavatar');
+const formAva = document.querySelector('.popup__editformavatar');
 	// Переменные popupadd
 const popupAdd = document.querySelector('.popup_add');
 const formAdd = document.querySelector('.popup__editform-add');
@@ -45,26 +38,6 @@ const subscibePopupImg = document.querySelector('.popup__p');
 	// Переменные popupsure
 const popupSure = document.querySelector('.popup_sure');
 const buttonSure = document.querySelector('.popup__button-sure');
-// Фиксированные карточки ===========================================================
-	function createCard(subscr, source) { 
-		const templCard = document.querySelector('#card').content;
-		const elemGrid = templCard.cloneNode(true); 
-		elemGrid.querySelector('.element__text').textContent = subscr; 
-		const img = elemGrid.querySelector('.element__img'); 
-		img.addEventListener('click', function() {showPopupImg(subscr, source);}); 
-		img.src = source; 
-		img.alt = subscr + ' - не загрузилось(';
-		const vLikeButton = elemGrid.querySelector('.element__buttonlike');
-		vLikeButton.addEventListener('click', function(evt) {evt.target.classList.toggle('element__buttonlike_liked');}); 
-		const vTrashButton = elemGrid.querySelector('.element__buttontrash'); 
-		vTrashButton.addEventListener('click', function(evt) {evt.target.closest('.element').remove();		});
-		return elemGrid; 
-	} 
-	function adding(what, where) {	where.prepend(what);} 
- 
-	function startGrid() {initialCards.forEach(function(item) {adding(createCard(item.title, item.link), grid);});} 
-	startGrid();
-// =================================================================================
 
 ////			Классы
 const avaPopupWithForm = new PopupWithForm({popup:popupAva, form:formAva, inputSelector: '.popup__input'}, avaSubmitHandler);
@@ -81,7 +54,7 @@ obPopupSure.setEventListeners();
 const showPopupImg = obPopupWithImage.showPopup.bind(obPopupWithImage);
 const showPoupSure = obPopupSure.showPopup.bind(obPopupSure);
 
-const infouser = new UserInfo({name:profileName, job:profileJob});
+const infouser = new UserInfo({avatar:newAvaButton, name:profileName, job:profileJob});
 const api = new Api({
 	baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-20/',
 	headers: {
@@ -89,7 +62,7 @@ const api = new Api({
 		'Content-Type': 'application/json'
 	}
 });
-api.loadUserProfile(infouser.setUserInfo, newAvaButton);
+api.loadUserProfile(infouser.setUserInfo);
 
 const obSection = new Section(/*result, */(item)=>{
 	const newCard = new Card(item, '#card', showPopupImg, showPoupSure, api.likeing);

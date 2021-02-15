@@ -11,7 +11,7 @@ export default class Api{
 		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 		.then((result) => {
 			callback(result);
-			newAvaButton.style.backgroundImage = `url(${result.avatar})`;
+			//newAvaButton.style.backgroundImage = `url(${result.avatar})`;
 		})
 		.catch((err)=>{alert('loadUserProfile\n'+err);});
 	}

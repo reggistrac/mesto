@@ -1,5 +1,6 @@
 export default class UserInfo {
 	constructor(data){
+		this._avatar = data.avatar;
 		this._name = data.name;
 		this._job = data.job;
 		
@@ -10,10 +11,9 @@ export default class UserInfo {
 	setUserInfo = (data)=>{
 		//infouser.setUserInfo({name:result.name,job:result.about});
 		//newAvaButton.style.backgroundImage = `url(${result.avatar})`;
+		this._avatar.style.backgroundImage = `url(${data.avatar})`;
 		this._name.textContent = data.name;
 		this._job.textContent = data.about;
 		console.log('ИД пользователя '+data._id);
-		//this._name.textContent = data.name;
-		//this._job.textContent = data.job;
 	}
 }
