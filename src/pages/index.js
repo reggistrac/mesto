@@ -63,7 +63,6 @@ const api = new Api({
 	}
 });
 api.loadUserProfile()
-	.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 	.then((result) => {
 		infoUser.setUserInfo(result);
 	})
@@ -74,7 +73,6 @@ const obSection = new Section((item)=>{
 	return newCard;
 }, grid);
 api.loadInitialCards()
-	.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 	.then((result) => {
 		obSection.createStartGrid(result);
 	})
@@ -109,7 +107,6 @@ function showPopupAdd () {
 function avaSubmitHandler(data){
 	avaPopupWithForm.renderLoading(true);
 	api.changeAvatar(data)
-		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 		.then((result) => {
 			newAvaButton.style.backgroundImage = `url(${result.avatar})`;
 			avaPopupWithForm.renderLoading(false);
@@ -120,7 +117,6 @@ function avaSubmitHandler(data){
 function editProfileFormSubmitHandler (data) {
 	profilePopupWithForm.renderLoading(true);
 	api.changeUserInfo(data)
-		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 		.then((result) => {
 			infoUser.setUserInfo(result);
 			profilePopupWithForm.renderLoading(false);
@@ -131,7 +127,6 @@ function editProfileFormSubmitHandler (data) {
 function addNewCard(data) {
 	addPopupWithForm.renderLoading(true);
 	api.addCard(data)
-		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 		.then((result) => {
 			obSection.creataItem(result);
 			addPopupWithForm.renderLoading(false);
@@ -142,7 +137,6 @@ function addNewCard(data) {
 function deleteCard(element, id){
 	obPopupSure.closePopup();
 	api.deleteCard(id)
-		.then(res => {if(!res.ok){return Promise.reject(`Ошибка: ${res.status}`);}	}	)
 		.then((result) =>{
 			element.remove();
 		})

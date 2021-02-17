@@ -8,7 +8,7 @@ export default class UserInfo {
 	getUserInfo(){
 		return {name: this._name.textContent, job: this._job.textContent};
 	}
-	setUserInfo = (data)=>{
+	setUserInfo = (data)=>{console.log(data._id);
 		this._avatar.style.backgroundImage = `url(${data.avatar})`;
 		this._name.textContent = data.name;
 		this._job.textContent = data.about;

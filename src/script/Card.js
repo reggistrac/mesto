@@ -20,7 +20,7 @@ export default class Card{
 
 	_handlelike = (evt)=>{
 		this._likeing(this._data, this._userId)
-			.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+			//.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
 			.then((result) => {
 				evt.target.parentElement.nextElementSibling.textContent = result.likes.length;
 				evt.target.classList.toggle('element__buttonlike_liked');
@@ -43,12 +43,13 @@ export default class Card{
 		const likeButton = newElement.querySelector('.element__buttonlike');
 		this._setEventListener(likeButton,'click', this._handlelike);
 		newElement.querySelector('.element__count').textContent = this._likes.length;
-		if(this._likes.some(function(item){return item._id==='d5e262bcd7280f9c0c11a8e4'})){
+		const thisUserId = this._userId;
+		if(this._likes.some(function(item){return item._id === thisUserId})){
 			likeButton.firstElementChild.classList.toggle('element__buttonlike_liked');
 		}
 		const trashButton = newElement.querySelector('.element__buttontrash');
 		this._setEventListener(trashButton,'click', this._handleTrash);
-		if(this._owner !== this._userId/*'d5e262bcd7280f9c0c11a8e4'*/){
+		if(this._owner !== this._userId){
 			console.log(this._owner);
 			trashButton.style.display = 'none';
 		}
