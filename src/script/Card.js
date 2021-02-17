@@ -1,5 +1,5 @@
 export default class Card{
-	constructor(data, selector, showImgPopup, showPoupSure, likeing) {
+	constructor(data, selector, userId, showImgPopup, showPoupSure, likeing) {
 		this._data = data;
 		this._subscribe = data.title;
 		this._source = data.link;
@@ -7,6 +7,7 @@ export default class Card{
 		this._id = data._id;
 		this._likes = data.likes;
 		this._selector = selector;
+		this._userId = userId;
 		this._showImgPopup = showImgPopup;
 		this._showPoupSure = showPoupSure;	
 		this._likeing = likeing;	}
@@ -18,15 +19,16 @@ export default class Card{
 	_handleClick = ()=>{this._showImgPopup(this._subscribe, this._source);	}
 
 	_handlelike = (evt)=>{
-		this._likeing(
-			this._data,
-			(result)=>{
+		this._likeing(this._data, this._userId)
+			.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+			.then((result) => {
 				evt.target.parentElement.nextElementSibling.textContent = result.likes.length;
 				evt.target.classList.toggle('element__buttonlike_liked');
-			}
-		);
+				this._data.likes = result.likes;
+			})
+			.catch((err)=>{alert('likeing\n'+err);});
 	}
-//	_handleTrash(evt) {	evt.target.closest('.element').remove();	}
+
 	_handleTrash = (evt)=>{		this._showPoupSure(evt.target.closest('.element'), this._id);	}
 
 	_setEventListener(item, event, metod) {	item.addEventListener(event, metod);	}
@@ -46,7 +48,7 @@ export default class Card{
 		}
 		const trashButton = newElement.querySelector('.element__buttontrash');
 		this._setEventListener(trashButton,'click', this._handleTrash);
-		if(this._owner !== 'd5e262bcd7280f9c0c11a8e4'){
+		if(this._owner !== this._userId/*'d5e262bcd7280f9c0c11a8e4'*/){
 			console.log(this._owner);
 			trashButton.style.display = 'none';
 		}

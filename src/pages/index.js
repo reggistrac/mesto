@@ -54,7 +54,7 @@ obPopupSure.setEventListeners();
 const showPopupImg = obPopupWithImage.showPopup.bind(obPopupWithImage);
 const showPoupSure = obPopupSure.showPopup.bind(obPopupSure);
 
-const infouser = new UserInfo({avatar:newAvaButton, name:profileName, job:profileJob});
+const infoUser = new UserInfo({avatar:newAvaButton, name:profileName, job:profileJob, userId:0});
 const api = new Api({
 	baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-20/',
 	headers: {
@@ -62,13 +62,23 @@ const api = new Api({
 		'Content-Type': 'application/json'
 	}
 });
-api.loadUserProfile(infouser.setUserInfo);
+api.loadUserProfile()
+	.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+	.then((result) => {
+		infoUser.setUserInfo(result);
+	})
+	.catch((err)=>{alert('loadUserProfile\n'+err);});
 
-const obSection = new Section(/*result, */(item)=>{
-	const newCard = new Card(item, '#card', showPopupImg, showPoupSure, api.likeing);
+const obSection = new Section((item)=>{
+	const newCard = new Card(item, '#card', infoUser._userId, showPopupImg, showPoupSure, api.likeing);
 	return newCard;
 }, grid);
-api.loadInitialCards(	(result)=>{	obSection.createStartGrid(result);	}	);
+api.loadInitialCards()
+	.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+	.then((result) => {
+		obSection.createStartGrid(result);
+	})
+	.catch((err)=>{alert('loadInitialCards\n'+err);});
 
 ////			Валидация
 const avaValidator = new FormValidator(setValid, formAva);
@@ -84,7 +94,7 @@ function showPopupAvatar(){
 	avaPopupWithForm.showPopup();
 }
 function showEditProfilePopup() {
-	const info = infouser.getUserInfo();
+	const info = infoUser.getUserInfo();
 	valueName.setAttribute('value', info.name);
 	valueJob.setAttribute('value', info.job);
 	profileValidator.resetError();
@@ -98,19 +108,45 @@ function showPopupAdd () {
 }
 function avaSubmitHandler(data){
 	avaPopupWithForm.renderLoading(true);
-	api.changeAvatar(newAvaButton, avaPopupWithForm, data);
+	api.changeAvatar(data)
+		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+		.then((result) => {
+			newAvaButton.style.backgroundImage = `url(${result.avatar})`;
+			avaPopupWithForm.renderLoading(false);
+			avaPopupWithForm.closePopup();
+		})
+		.catch((err)=>{alert('changeAvatar\n'+err);});
 }
 function editProfileFormSubmitHandler (data) {
 	profilePopupWithForm.renderLoading(true);
-	api.changeUserInfo(infouser.setUserInfo, profilePopupWithForm, data);
+	api.changeUserInfo(data)
+		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+		.then((result) => {
+			infoUser.setUserInfo(result);
+			profilePopupWithForm.renderLoading(false);
+			profilePopupWithForm.closePopup();
+		})
+		.catch((err)=>{alert('changeUserInfo\n'+err);});
 }
 function addNewCard(data) {
 	addPopupWithForm.renderLoading(true);
-	api.addCard(obSection.creataItem, addPopupWithForm, data);
+	api.addCard(data)
+		.then(res => {if(res.ok){return res.json()	}return Promise.reject(`Ошибка: ${res.status}`);	}	)
+		.then((result) => {
+			obSection.creataItem(result);
+			addPopupWithForm.renderLoading(false);
+			addPopupWithForm.closePopup();
+		})
+		.catch((err)=>{alert('addCard\n'+err);});
 }
 function deleteCard(element, id){
 	obPopupSure.closePopup();
-	api.deleteCard(id, element);
+	api.deleteCard(id)
+		.then(res => {if(!res.ok){return Promise.reject(`Ошибка: ${res.status}`);}	}	)
+		.then((result) =>{
+			element.remove();
+		})
+		.catch((err)=>{alert('deleteCard\n'+err);});
 }
 newAvaButton.addEventListener('click', function() {	showPopupAvatar();});
 openEditProfilePopupButton.addEventListener('click', function() {	showEditProfilePopup();});
